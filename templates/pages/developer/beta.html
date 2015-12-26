@@ -1,0 +1,33 @@
+{%extends "base/page.html"%}
+{%block title%}Beta Information{%endblock%}
+{%block contents%}
+<h1>Beta Information</h1>
+
+<p>PostgreSQL beta and release candidate releases are pre-release testing versions, not meant for production use. They are feature-frozen, and we release these to the public for testing before our final release.</p>
+
+<p>The PostgreSQL Global Development Group strongly advises against using beta versions of PostgreSQL in production installations or active development projects. While the PostgreSQL code is continuously subject to a number of automated and manual tests, beta releases might have serious bugs. Features are subject to changes that are backwards incompatible at any time during the development of the betas, and could possibly be removed altogether.</p>
+
+<p>However, betas and release candidates are meant for everyone who uses PostgreSQL to test before the full release. The process of testing these betas will help the community to identify and fix bugs prior to release.</p>
+
+<p>PostgreSQL 9.5 is <a href="/developer/alpha">currently in alpha</a>. There are no beta versions currently available.
+
+<!--
+
+<p>The current test release is PostgreSQL 9.4 RC 1.  For more information on the current beta and how to test, please view the links below.
+
+<ul>
+  <li>
+    <a href="/about/news/1555/">Release Announcement</a>
+  </li>
+  <li>
+    <a href="/ftp/source/v9.4rc1">Download 9.4 RC 1 source code</a>
+  </li>
+  
+  <li>
+    <a href="https://wiki.postgresql.org/wiki/HowToBetaTest">A Guide on PostgreSQL Beta Testing</a>
+  </li>
+</ul>
+
+-->
+
+{%endblock%}

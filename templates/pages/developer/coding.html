@@ -1,0 +1,41 @@
+{%extends "base/page.html"%}
+{%block title%}Coding{%endblock%}
+{%block contents%}
+
+<h1>Coding</h1>
+
+<p>The following links are useful when exploring the PostgreSQL source code.</p>
+
+<h2>Code access and information</h2>
+<ul>
+    <li><a href="http://git.postgresql.org/gitweb?p=postgresql.git">Web interface to the Source Code Repository</a></li>
+    <li><a href="/docs/current/static/git.html">Information about the Source Code Repository</a></li>
+    <li><a href="http://doxygen.postgresql.org/">Source Code Browser</a> (Doxygen)</li>
+    <li><a href="/developer/backend/">Backend Flowchart</a></li>
+    <li><a href="https://babel.postgresql.org/">Translating</a></li>
+    <li><a href="https://wiki.postgresql.org/wiki/Developer_and_Contributor_Resources">Developer Section on wiki.postgresql.org</a></li>
+    <li>
+     <form action="http://git.postgresql.org/gitweb" method="get">
+      <input type="hidden" name="p" value="postgresql.git" />
+      <input type="hidden" name="a" value="commitdiff" />
+      View git commit hash: <input type="text" name="h" size="40" />
+      <input type="submit" value="Go" />
+     </form>
+    </li>
+</ul>
+
+<h2>Documentation</h2>
+<ul>
+    <li><a href="https://wiki.postgresql.org/wiki/Developer_FAQ">Frequently Asked Questions for Developers</a></li>
+</ul>
+
+<h2>Presentations</h2>
+<ul>
+	<li><a href="/files/developer/transactions.pdf">Transaction Processing in PostgreSQL</a> (From OSDN Oct 2000)</li>
+	<li><a href="/files/developer/tour.pdf">A Tour of PostgreSQL Internals</a> (From OSDN Oct 2000)</li>
+	<li><a href="/files/developer/history.pdf">History of PostgreSQL Open-Source Development</a> (From OSDN Oct 2000)</li>
+	<li><a href="/files/developer/internalpics.pdf">Database Internals Presentation</a> (From 2001)</li>
+	<li><a href="/files/developer/concurrency.pdf">PostgreSQL Concurrency Issues</a> (From OSCON 2002)</li>
+	<li><a href="/files/developer/optimizer.pdf">Recent PostgreSQL Optimizer Improvements (in 7.4)</a> (From OSCON 2003)</li>
+</ul>
+{%endblock%}

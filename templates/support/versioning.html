@@ -1,0 +1,72 @@
+{%extends "base/page.html"%}
+{%block title%}Versioning policy{%endblock%}
+{%block contents%}
+
+<h1>Versioning policy</h1>
+
+<p>
+<i>We always recommend that all users run the latest available minor release for whatever major version is in use.</i>
+</p>
+
+<p>
+PostgreSQL major releases include new features and occur roughly once every year. A major release is numbered by increasing either the first or second part of the version number, e.g. 9.1 to 9.2.
+</p>
+
+<p>
+Major releases usually change the internal format of system tables and data files.  These changes are often complex, so we do not maintain backward compatibility of all stored data.  A dump/reload of the database or use of the <a href="/docs/current/static/pgupgrade.html">pg_upgrade</a> module is required for major upgrades.
+</p>
+
+<p>
+Minor releases are numbered by increasing the third part of the version number, e.g. 9.2.3 to 9.2.4. The PostgreSQL team only adds bug fixes to minor releases. All users should upgrade to the most recent minor release as soon as possible. While upgrades always have some risk, PostgreSQL minor releases fix only frequently-encountered, <a href="/support/security">security</a>, and data corruption bugs to reduce the risk of upgrading. <i>The community considers not upgrading to be riskier than upgrading</i>.
+</p>
+
+<p>
+Upgrading to a minor release does not require a dump and restore; merely stop the database server, install the updated binaries, and restart the server.  For some releases, manual changes may be required to complete the upgrade, so always read the release notes before upgrading.
+</p>
+
+<h2>PostgreSQL release support policy</h2>
+<p>
+The PostgreSQL project aims to fully support a major release for
+<b>five years</b>.
+</p>
+
+<p>
+After a release falls out of full support, we may (at our committers'
+discretion) continue to apply further critical fixes to the source code,
+on a best-effort basis. No formal releases or binary packages will be
+produced by the project, but the updated source code will be available
+from our source code control system.
+</p>
+
+<p>
+This policy will be followed on a best-effort basis. In extreme cases it
+may not be possible to support a release for the planned lifetime; for
+example if a serious bug is found that cannot be resolved in a given major
+version without significant risk to the stability of the code or loss of
+application compatibility. In such cases, early retirement of a major
+version may be required.
+</p>
+
+<h2>End Of Life (EOL) dates</h2>
+<div class="tblBasic">
+ <table border="0" cellpadding="0" cellspacing="0" class="tblBasicGrey">
+  <tr>
+   <th class="colFirst">Version</th>
+   <th class="colMid">Current minor</th>
+   <th class="colMid">Supported</th>
+   <th class="colMid">First release date</th>
+   <th class="colLast">EOL date</th>
+  </tr>
+
+{%for v in versions%}
+  <tr {%if forloop.last%}class="lastrow"{%endif%}>
+   <td class="colFirst">{{v.tree}}</td>
+   <td class="colMid">{{v.tree}}.{{v.latestminor}}</td>
+   <td class="colMid">{{v.supported|yesno:"Yes,No"}}</td>
+   <td class="colMid">{{v.firstreldate|date:"F Y"}}</td>
+   <td class="colLast">{{v.eoldate|date:"F Y"}}</td>
+  </tr>
+{%endfor%}
+ </table>
+</div>
+{%endblock%}

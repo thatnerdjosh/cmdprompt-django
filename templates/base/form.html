@@ -1,0 +1,87 @@
+{%extends "base/page.html"%}
+{%load pgfilters%}
+{%block title%}{{operation|default:"Edit"}} {{formitemtype}}{%endblock%}
+{%block contents%}
+<h1>{{operation|default:"Edit"}} {{formitemtype}}</h1>
+<form method="post" action=".">{%if not nocsrf%}{% csrf_token %}{%endif%}
+{%if form_intro%}
+<p>
+{{form_intro|safe}}
+</p>
+{%endif%}
+
+<table class="pgGenericFormTable">
+{%if form.errors%}
+ <tr class="errorheader">
+  <td colspan="2">Please correct the errors below, and re-submit the form.</td>
+ </tr>
+{%endif%}
+{%for field in form%}
+ {%if field.errors %}
+ <tr class="error">
+  <td colspan="2">{{field.errors.as_ul}}</td>
+ </tr>
+ {%endif%}
+ <tr {%if field.errors%}class="errorinfo"{%endif%}>
+  <th>{{field.label_tag}}{%if field.help_text%}{%if field.field.widget|class_name == "Textarea"%}<br/>
+   <span class="formfieldhelp">{{field.help_text|safe}}</span>{%endif%}{%endif%}
+  </th>
+  <td>{{field}}</td>
+ </tr>
+{%if field.help_text %}{%if field.field.widget|class_name != "Textarea"%}
+<tr>
+  <th></th>
+  <td><span class="formfieldhelp">{{field.help_text|safe}}</span></td>
+</tr>
+{%endif%}{%endif%}
+{%endfor%}
+</table>
+<input type="submit" value="{{savebutton|default:"Save"}}" />
+</form>
+{%endblock%}
+
+{% block extrahead %}
+{{ block.super }}
+{%if toggle_fields or jquery %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+{%endif%}
+{%if markdownfields%}
+<link rel="stylesheet" type="text/css" href="/media/css/showdown_preview.css" />
+<script type="text/javascript" src="/media/showdown/showdown.js"></script>
+<script type="text/javascript" src="/media/js/showdown_preview.js"></script>
+<script language="javascript">
+   window.onload = function() {
+      {%for mdf in markdownfields %}
+         attach_showdown_preview('id_{{mdf}}', 0);
+      {%endfor%}
+   }
+</script>
+{%if toggle_fields %}
+<script language="javascript">
+{%for f in toggle_fields%}
+function toggle_{{f.name}}() {
+   v = $('#id_{{f.name}}').prop('checked');
+{%for c in f.fields%}
+{%if f.invert%}
+   if (v) {
+{%else%}
+   if (!v) {
+{%endif%}
+      $('#id_{{c}}').attr('disabled', true);
+   } else {
+      $('#id_{{c}}').removeAttr('disabled');
+   }
+{%endfor%}
+}
+$(document).ready(function() {
+   $('#id_{{f.name}}').change(function() {
+      toggle_{{f.name}}();
+   });
+   toggle_{{f.name}}();
+});
+{%endfor%}
+</script>
+{%endif%}
+{%endif%}
+{%endblock%}
+

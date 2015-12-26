@@ -1,0 +1,121 @@
+{%extends "base/page.html"%}
+{%block title%}Feature Matrix{%endblock%}
+{%block extrahead%}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+  //<![CDATA[
+    $(document).ready(function(){
+      var eol_versions = ["{{eol_versions|join:'","'}}"];
+
+      // Create form to contain filter checkboxes
+      $('table').before('<form id="version_filter"><fieldset><legend>Filter by version</legend></fieldset></form><br/>');
+
+      // Generate a list of versions based on table column headers
+      $('table tr:first th').not('th:nth-child(1)').each(function(){
+        var version_class = $(this).text().replace('.', '');
+
+        // Only mark a box as checked if no in the EOL list
+        var checked = (eol_versions.indexOf($(this).text()) == -1 ? 'checked="checked"' : '');
+
+        $('form#version_filter fieldset').append('<label for="' + version_class + '">' + $(this).text()
+          + '</label><input class="version" ' + checked + ' type="checkbox" id="toggle_' + version_class + '"/ value="' +
+          $(this).text() + '"/>&nbsp;');
+      });
+
+      // Add a checkbox to hide rows where all values are the same between
+      // displayed versions.  Default: checked.
+      $('form#version_filter fieldset').append('<hr/> <label for="hide_unchanged">Hide unchanged features</label><input type="checkbox" checked="checked" id="hide_unchanged" />');
+
+      // Show/hide column based on whether supplied checkbox is checked.
+      function filter_version(checkbox)
+      {
+        var column=$("table tr:first th").index($("table tr:first th:contains('" + checkbox.val() + "')")) + 1;
+        $("table th:nth-child(" + column + "), table td:nth-child(" + column + ")").toggle(checkbox.is(":checked")).toggleClass('hidden');
+        hide_unchanged();
+      }
+
+      // Show/hide rows if all values are the same in displayed cells
+      function hide_unchanged()
+      {
+        var hide_unchanged=$('form#version_filter input#hide_unchanged').is(':checked');
+        $('table tr').has('td').each(function(){
+          var row_values=$(this).children('td').not('.colFirst, .hidden');
+          var yes_count=row_values.filter(":contains('Yes')").length;
+          var no_count=row_values.filter(":contains('No')").length;
+          var obsolete_count=row_values.filter(":contains('Obsolete')").length;
+          $(this).toggle(hide_unchanged == false || (yes_count != row_values.length && no_count != row_values.length && obsolete_count != row_values.length));
+        });
+      }
+
+      // Upon loading the page, apply the filter based on EOL versions that are
+      // unchecked.
+      $('form#version_filter input.version').not(':checked').each(function(){
+        filter_version($(this));
+      });
+
+      // Apply filter based on change in check status of clicked version filter.
+      $('form#version_filter input.version').on("change", function(){
+        filter_version($(this));
+      });
+
+      // Show/hide unchanged feature rows when checkbox clicked.
+      $('form#version_filter input#hide_unchanged').on("change", function(){
+        hide_unchanged();
+      });
+    });
+  //]]>
+</script>
+<style type="text/css">
+div.tblBasic { margin-top: 20px; }
+form#version_filter { text-align: center; }
+input.version { margin-right: 15px; }
+input.version:last-child { margin-right: 0; }
+td.fm_no { background-color: #ffdddd !important; }
+td.fm_yes {  background-color: #ddffdd !important; }
+td.fm_obs { background-color: #ddddff !important; }
+td.fm_unk { background-color: #ffffaa !important; }
+</style>
+{%endblock%}
+{%block contents%}
+<h1>Feature Matrix</h1>
+<p>
+This table outlines which features were added in which version. To get more
+information about a feature, click the link or hover the mouse pointer over
+the text.
+</p>
+<h2>Groups</h2>
+<ul>
+{%for group in groups %}
+ <li><a href="#{{group.group.groupname|slugify}}">{{group.group.groupname}}</a></li>
+{%endfor%}
+</ul>
+
+<div class="tblBasic">
+<table border="0" cellpadding="0" cellspacing="0" class="tblBasicGrey">
+{%for group in groups %}
+ <tr>
+  <th class="colFirst"><a name="{{group.group.groupname|slugify}}">{{group.group.groupname}}</a></th>
+  {%for col in group.group.columns %}
+  <th class="{%if forloop.last%}colLast{%else%}colMid{%endif%}">{{col}}</th>
+  {%endfor%}
+ </tr>
+ {%for feature in group.features%}
+  <tr valign="top" {%if forloop.last%}class="lastrow"{%endif%}>
+  <td class="colFirst" {%if feature.featuredescription%}title="{{feature.featuredescription|truncatewords:15}}"{%endif%}>
+   {% if feature.featuredescription %}
+    <a href="{{feature.featurelink}}">{{feature.featurename}}</a>
+   {%else%}
+    {{feature.featurename}}
+   {%endif%}
+  </td>
+  {%for col in feature.columns%}
+  <td class="{%if forloop.last%}colLast{%else%}colMid{%endif%} fm_{{col.class}}">{{col.str}}</td>
+  {%endfor%}
+  </tr>
+ {%endfor%}
+{%endfor%}
+</table>
+</div>
+
+{%endblock%}
+

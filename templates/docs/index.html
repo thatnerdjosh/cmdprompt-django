@@ -1,0 +1,39 @@
+{%extends "base/page.html"%}
+{%block title%}Documentation{%endblock%}
+{%block contents%}
+<div id="pgDocsWrap">
+<div id="pgDocs">
+<h1>Documentation</h1>
+
+<p>There is a wealth of PostgreSQL information available online. This section contains <a href="/docs/manuals">current</a>
+and <a href="/docs/manuals/archive">archived</a> manuals for PostgreSQL users, as well as
+<a href="/docs/faq">frequently asked questions</a>.</p>
+
+<p>You can learn <a href="/docs/9.4/static/release-9-4.html">what's new</a> in the latest release, and view a listing of <a href="/docs/books">books</a>
+written about PostgreSQL (some of which are available in their entirety online).
+<a href="https://wiki.postgresql.org">Technical documentation</a> is also available in this section, or you can check <a href="/support/security">Security Information</a>.</p>
+
+</div>
+</div>
+
+<div id="pgQuickDocsWrap">
+<div id="pgQuickDocs">
+  <dl>
+    <dt>Online Manuals</dt>
+    <dd>
+{%for v in versions%}
+        <p><b>{{v.treestring}}</b> ({%if not v.testing%}<a href="/docs/{{v.tree}}/interactive/index.html">with</a>/{%endif%}<a href="/docs/{{v.tree}}/static/index.html">without</a> comments)</p>
+{%endfor%}
+    </dd>
+    <dt>Translated Manuals</dt>
+    <dd>
+        <ul>
+          <li><a href="http://docs.postgresql.fr">French</a></li>
+          <li><a href="http://www.postgresql.jp/document/">Japanese</a></li>
+        </ul>
+    </dd>
+    <dd><p></p><a href="/docs/manuals">More manuals</a></dd>
+  </dl>
+</div>
+</div>
+{%endblock%}
