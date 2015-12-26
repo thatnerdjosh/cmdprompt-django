@@ -7,12 +7,11 @@
 * REFERENCE COLORS:
 * (in order from lightest to darkest)
 *
-* #e7eae8: Extremely light gray, used for alternating color boxes such as on mailinglists.html
-* #d7dad8: Medium gray, used in Dropotron
-* #666: Dark gray, official PostgreSQL gray color and equivalent to RGB(102,102,102)
-* #688297: Grayish blue, used in Dropotron
-* #336791: Medium blue, official PostgreSQL blue color
-* #264d6d: Dark blue
+* #286aaf: Light blue
+* #094074: Darker blue
+* #ebebeb: Off-white
+* #fe9000: Orange
+* #000102: Extremely dark gray, almost black
 *
 * -----------------------------------------
 * All padding: 0 0 0 0; and margin: 0 0 0 0; definitions are top, right, bottom, left specifications, respectively.
@@ -34,7 +33,7 @@ button,
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
-    background: #336791;
+    background: #286aaf;
     color: #fff;
     border: 0;
     line-height: 1em;
@@ -116,7 +115,7 @@ input[type="submit"].alt,
 input[type="reset"].alt,
 button.alt,
 .button.alt {
-    background: #666;
+    background: #286aaf;
 }
 
 input[type="button"].alt:hover,
@@ -124,7 +123,7 @@ input[type="submit"].alt:hover,
 input[type="reset"].alt:hover,
 button.alt:hover,
 .button.alt:hover {
-    background: #000;
+    background: #fe9000;
 }
 
 input[type="button"].alt:active,
@@ -132,7 +131,7 @@ input[type="submit"].alt:active,
 input[type="reset"].alt:active,
 button.alt:active,
 .button.alt:active {
-    background: #000;
+    background: #fe9000;
 }
 
 /* #ALT MOBILE */
@@ -144,7 +143,7 @@ button.alt:active,
     input[type="reset"].alt,
     button.alt,
     .button.alt {
-        background: #336791 none repeat scroll 0% 0%;
+        background: #286aaf none repeat scroll 0% 0%;
     }
 
 }

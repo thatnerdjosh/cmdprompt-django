@@ -7,12 +7,11 @@
 * REFERENCE COLORS:
 * (in order from lightest to darkest)
 *
-* #e7eae8: Extremely light gray, used for alternating color boxes such as on mailinglists.html
-* #d7dad8: Medium gray, used in Dropotron
-* #666: Dark gray, official PostgreSQL gray color and equivalent to RGB(102,102,102)
-* #688297: Grayish blue, used in Dropotron
-* #336791: Medium blue, official PostgreSQL blue color
-* #264d6d: Dark blue
+* #286aaf: Light blue
+* #094074: Darker blue
+* #ebebeb: Off-white
+* #fe9000: Orange
+* #000102: Extremely dark gray, almost black
 *
 * -----------------------------------------
 * All padding: 0 0 0 0; and margin: 0 0 0 0; definitions are top, right, bottom, left specifications, respectively.
@@ -26,6 +25,7 @@
         position: relative;
         display: inline-block;
         border-radius: 8px;
+        padding-bottom: 2em;
     }
 
     .image img {
@@ -98,7 +98,26 @@
     	color: #336791;
     }
 
+    .prof-centered {
+      border-radius: 50% !important;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50% !important;
+    }
 
+    .productImage {
+      width: 15%;
+      padding: 1em 0 2em 0;
+    }
+
+    .headerImage {
+      width: 6%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      top: -3em;
+    }
 /* #TABLET */
 
 @media screen and (min-width: 737px) and (max-width: 1200px) {
@@ -107,4 +126,12 @@
 		    width: 45.7%;
 	  }
 
+}
+
+@media screen and (max-width: 850px) {
+  .headerImage{
+    position: inherit;
+    width: 20%;
+    margin-bottom: 2.5em;
+  }
 }

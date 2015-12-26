@@ -7,18 +7,19 @@
 * REFERENCE COLORS:
 * (in order from lightest to darkest)
 *
-* #e7eae8: Extremely light gray, used for alternating color boxes such as on mailinglists.html
-* #d7dad8: Medium gray, used in Dropotron
-* #666: Dark gray, official PostgreSQL gray color and equivalent to RGB(102,102,102)
-* #688297: Grayish blue, used in Dropotron
-* #336791: Medium blue, official PostgreSQL blue color
-* #264d6d: Dark blue
+* #286aaf: Light blue
+* #094074: Darker blue
+* #e7eae8: Light gray
+* #fe9000: Orange
+* #1f2f16: Green
+* #000102102: Extremely dark gray, almost black
 *
 * -----------------------------------------
 * All padding: 0 0 0 0; and margin: 0 0 0 0; definitions are top, right, bottom, left specifications, respectively.
 *
 */
 
+@import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:700");
 
 /* #RESET */
@@ -154,7 +155,7 @@ h3.major span {
 }
 
 a {
-	  color: #006376;
+	  color: #094074;
 	  text-decoration: none;
 }
 
@@ -275,12 +276,12 @@ header > p {
 * Used on index.html.
 */
 
-.calendarBox {
+.color1AlternatingBox {
 	  background-color: #e7eae8;
 	  height: 4.1em;
 }
 
-.calendarBoxAlt {
+.color2AlternatingBox {
 	  background-color: #fff;
 	  height: 4.1em;
 }
@@ -289,7 +290,7 @@ header > p {
 /* #CALENDAR BOXES TABLET */
 
 @media screen and (min-width: 737px) and (max-width: 1200px) {
-	  .calendarBox, .calendarBoxAlt {
+	  .color1AlternatingBox, .color2AlternatingBox {
 		    height: 5em !important;
 	  }
 }
@@ -379,7 +380,7 @@ ul.contact li:hover a.fa-twitter {
 }
 
 ul.contact li:hover a.fa-github {
-	  background-color: #000;
+	  background-color: #000102;
 }
 
 ul.contact li:hover a.fa-linkedin {
@@ -567,16 +568,16 @@ table.default thead {
 
 #banner-wrapper {
 		position: relative;
-		background-image: url("/media/images/overlay.png"), url("/media/images/overlay.png"), url("/media/images/banner.jpg");
-		background-position: top left, top left, center center;
-		background-repeat: repeat, repeat, no-repeat;
-		background-size: auto, auto, cover;
+		background-image: url("/media/images/banner.jpg");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		z-index: 1;
 }
 
 #main-wrapper {
 		background: #fff;
-		border-top: 5px solid #336791;
+    border-top: solid 5px #094074;
 		border-bottom: solid 5px #666;
 }
 
@@ -590,9 +591,9 @@ table.default thead {
 
 #banner {
 		position: relative;
-		background-color: rgba(102, 102, 102, 0.70);
+    background-attachment: fixed;
 		background-image: url("/media/images/overlay.png"), url("/media/images/highlight.png");
-		background-position: top left, center center;
+		background-position: center center;
 		background-size: auto, 100% 250%;
 		background-repeat: repeat, no-repeat;
 		text-align: center;
@@ -616,10 +617,10 @@ table.default thead {
 		-webkit-transition: border-color .2s ease-in-out, color .2s ease-in-out;
 		-ms-transition: border-color .2s ease-in-out, color .2s ease-in-out;
 		transition: border-color .2s ease-in-out, color .2s ease-in-out;
-		color: #b4b7b5;
+		color: #fff;
 		background: transparent !important;
 		border: solid 4px #fff;
-		border-color: #b4b7b5;
+		border-color: #fff;
 		border-radius: 16px;
 }
 
@@ -648,6 +649,10 @@ table.default thead {
 		background: #f2f5f3;
 }
 
+.auditAndTune {
+  text-align: left;
+}
+
 
 /* #DESKTOP */
 
@@ -666,7 +671,7 @@ table.default thead {
 		h2.major {
 				font-size: 1.65em;
 				text-align: center;
-				margin: 0 0 3em 0;
+				margin: 0 0 1em 0;
 		}
 
 		h2.major span {
@@ -718,8 +723,13 @@ table.default thead {
 		}
 
 		.box.feature > div {
-				height: 220px;
+        padding-top: 1.5em;
+				height: 17.5em;
 		}
+
+    .box.feature.profile {
+      box-shadow: 10px 10px 10px #E7EAE8;
+    }
 
 		.box.feature.date {
 				display: block;
@@ -775,19 +785,19 @@ table.default thead {
 		}
 
 		.box.post-centered a li:hover, .box.post-centered li.active {
-				color: #000;
+				color: #000102;
 		}
 
 		.box.post-centered li:hover a {
-				color: #000;
+				color: #000102;
 		}
 
 		.box.post-centered a:hover {
-				color: #000;
+				color: #000102;
 		}
 
 		.box.page-content header {
-				margin: 0 0 2.5em 0;
+				margin: 0 0 6em 0;
 		}
 
 		.box.page-content h2 {
@@ -843,7 +853,7 @@ table.default thead {
 		/* #WRAPPERS DESKTOP */
 
 		#banner-wrapper {
-				padding: 14em 0;
+				padding: 12em 0;
 		}
 
 		#main-wrapper {
@@ -860,6 +870,7 @@ table.default thead {
 				font-family: 'Open Sans Condensed', sans-serif;
 				font-weight: 700;
 				text-transform: uppercase;
+				padding: 4em 0 1.5em 0;
 				background: #fff;
 				margin: 0 auto;
 		}
@@ -871,7 +882,7 @@ table.default thead {
 		}
 
 		#header .logo div {
-				background: #fff;
+        background: #fff;
 				position: relative;
 				display: inline-block;
 				padding: 0 1.5em 0 1.5em;
@@ -884,7 +895,7 @@ table.default thead {
 
 		#header .logo p {
 				display: inline;
-				color: #264d6d;
+				color: #094074;
 		}
 
 
@@ -949,22 +960,22 @@ table.default thead {
   	}
 
 	  #nav li:hover a {
-				background: #264d6d;
+				background: #fe9000;
 				color: #fff;
   	}
 
 	  #nav li.active a {
-				background: #264d6d;
+				background: #fe9000;
 				color: #fff;
   	}
 
 	  #nav li.current a {
-				background: #336791;
+				background: #286aaf;
 				color: #fff;
   	}
 
     .header img {
-				width: 2em;
+				width: 5em;
 				vertical-align: middle;
   	}
 
@@ -975,7 +986,7 @@ table.default thead {
   	}
 
 	  .dropotron {
-				background: #666;
+				background: #094074;
 				color: #fff;
 				border-radius: 6px;
 				line-height: 2.75em;
@@ -991,20 +1002,21 @@ table.default thead {
   	}
 
 	  .dropotron li > a, .dropotron li > span {
+        transition: background-color 0.5s ease;
 				display: block;
-				color: #d7dad8;
+				color: #fff;
 				text-decoration: none;
 				padding: 0 1.25em;
   	}
 
 	  .dropotron li:hover > a, .dropotron li:hover > span {
 				color: #fff;
-				background: #688297;
+				background: #fe9000;
   	}
 
 	  .dropotron li.active > a, .dropotron li.active > span {
 				color: #fff;
-				background: #688297;
+				background: #e7eae8;
   	}
 
 	  .dropotron li:first-child {
@@ -1023,7 +1035,7 @@ table.default thead {
 				left: 50%;
 				top: -0.65em;
 				border-left: solid 1em transparent;
-				border-bottom: solid 1em #666;
+				border-bottom: solid 1em #094074;
 				border-right: solid 1em transparent;
 	  }
 
@@ -1515,7 +1527,7 @@ table.default thead {
 				position: absolute;
 				left: 0;
 				top: 0;
-				background: #336791;
+				background: #286aaf;
 				width: 44px;
 				height: 44px;
 				content: '\f0c9';
@@ -1652,6 +1664,18 @@ table.default thead {
 	    	list-style: none;
 	  }
 
+    .mobileParallaxFix {
+      margin-top: 60px;
+      margin-bottom: 20px;
+    }
+
+    .product {
+      height: 100% !important;
+    }
+
+    .auditAndTune {
+      text-align: justify;
+    }
 }
 
 
@@ -1697,8 +1721,8 @@ h3.major.no-margin {
 */
 
 .contributorLeftBox {
-  	background-color: #336791;
-	  border-color: #336791;
+  	background-color: #286aaf;
+	  border-color: #286aaf;
 	  color: #fff;
 }
 
@@ -1729,8 +1753,17 @@ h3.major.no-margin {
 }
 
 .contributorFaux {
-	  background-color: #336791;
+	  background-color: #286aaf;
 	  border-bottom: #fff;
+}
+
+.noPaddingTop {
+  padding-top: 0;
+}
+
+.product {
+  height: 420px;
+  margin-bottom: 20px;
 }
 
 /* #CONTRIBUTOR GREYBOXES MOBILE */
@@ -1878,4 +1911,95 @@ label:before {
     height: 20px;
     background: #f8f8f8;
     position: absolute;
+}
+
+
+/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
+
+/* ============================================================
+  SECTIONS
+============================================================ */
+section.module:last-child {
+  margin-bottom: 0;
+}
+section.module h2 {
+  font-family: "Roboto Slab", serif;
+  font-size: 30px;
+}
+section.module p {
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 300;
+}
+section.module p:last-child {
+  margin-bottom: 0;
+}
+section.module.parallax {
+  height: 400px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin-bottom: 0px !important;
+}
+section.module.parallax.blog {
+  height: 200px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin-bottom: 0px !important;
+}
+section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 48px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.module.parallax-1 {
+  background-image: url("/media/images/banner.jpeg");
+}
+section.module.parallax-2 {
+  background-image: url("/media/images/banner2.jpg");
+}
+section.module.parallax-3 {
+  background-image: url("/media/images/banner3.jpeg");
+}
+section.module.parallax-4 {
+  background-image: url("/media/images/banner4.jpeg");
+}
+section.module.parallax-5 {
+  background-image: url("/media/images/banner5.jpg");
+}
+section.module.parallax-6 {
+  background-image: url("/media/images/banner6.jpg");
+}
+section.module.parallax-7 {
+  background-image: url("/media/images/banner7.jpeg");
+}
+section.module.parallax.blog-1 {
+  background-image: url("/media/images/blogfeatured.jpeg");
+  border-radius: 20px;
+}
+
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 42px;
+  }
+  section.module p {
+    font-size: 20px;
+  }
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
+}
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 160px;
+  }
 }
