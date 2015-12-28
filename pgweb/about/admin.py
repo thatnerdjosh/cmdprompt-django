@@ -1,6 +1,6 @@
 from django.contrib import admin
 from pgweb.util.admin import PgwebAdmin
-from models import TeamMember, AboutContentBlock
+from models import TeamMember, AboutContentBlock, Career
 
 class TeamMemberAdmin(admin.ModelAdmin):
 	list_display = ('title',)
@@ -9,3 +9,4 @@ class TeamMemberAdmin(admin.ModelAdmin):
 
 admin.site.register(TeamMember, TeamMemberAdmin)
 admin.site.register(AboutContentBlock)
+admin.site.register(Career)

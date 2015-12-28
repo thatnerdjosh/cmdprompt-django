@@ -24,3 +24,10 @@ class AboutContentBlock(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class Career(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False, help_text="Career Name")
+    description = HTMLField()
+
+    def __unicode__(self):
+        return self.name

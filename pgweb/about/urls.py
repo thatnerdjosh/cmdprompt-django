@@ -11,6 +11,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'pgweb.about.views.about'),
-    #(r'^careers/$', 'pgweb.about.views.careers'),
-    #(r'^partners/$', 'pgweb.about.views.partners')
+    (r'^careers/$', 'pgweb.about.views.careers'),
+    (r'^partners/$', 'pgweb.about.views.partners')
 )
