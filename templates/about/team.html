@@ -1,0 +1,34 @@
+<div class="row 200%">
+  <div class="12u">
+      <div class="row">
+        <div class="12u">
+          <h2 class="major"><span>Our Team</span></h2>
+        </div>
+      </div>
+      <section class="box features">
+        <div>
+          {% for team_member in team_members %}
+            {% if forloop.counter0|divisibleby:2 %}
+            <div class="row">
+            {% endif %}
+              <div class="6u 12u(mobile)">
+
+                <!-- Feature -->
+                  <section class="box feature profile">
+                    <a href="#" class="image featured"><img class="prof-centered" src="/{{team_member.profile_pic}}" alt="" /></a>
+                    <h3><a href="#">{{team_member.name}}</a></h3>
+                    <h3>{{team_member.title}}</h3>
+                    <p>
+                      {{team_member.bio}}
+                    </p>
+                  </section>
+
+              </div>
+            {% if not forloop.counter0|divisibleby:2 %}
+            </div>
+            {% endif %}
+          {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
