@@ -8,4 +8,4 @@ class PUGAdmin(PgwebAdmin):
 	list_filter = ('approved', )
 	search_fields = ('title', )
 
-admin.site.register(PUG, PUGAdmin)
+#admin.site.register(PUG, PUGAdmin)

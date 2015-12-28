@@ -8,4 +8,4 @@ class ProfessionalServiceAdmin(PgwebAdmin):
 	list_filter = ('approved',)
 	search_fields = ('org__name',)
 
-admin.site.register(ProfessionalService, ProfessionalServiceAdmin)
+#admin.site.register(ProfessionalService, ProfessionalServiceAdmin)

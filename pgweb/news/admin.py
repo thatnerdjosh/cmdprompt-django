@@ -16,4 +16,4 @@ class NewsArticleAdmin(PgwebAdmin):
 		}
 		return super(NewsArticleAdmin, self).change_view(request, object_id, extra_context=my_context)
 
-admin.site.register(NewsArticle, NewsArticleAdmin)
+#admin.site.register(NewsArticle, NewsArticleAdmin)

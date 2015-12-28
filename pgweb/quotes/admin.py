@@ -4,4 +4,4 @@ from models import Quote
 class QuoteAdmin(admin.ModelAdmin):
 	list_display = ('quote', 'who', 'org', )
 
-admin.site.register(Quote, QuoteAdmin)
+#admin.site.register(Quote, QuoteAdmin)
