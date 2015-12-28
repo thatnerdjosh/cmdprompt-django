@@ -166,5 +166,8 @@ TINYMCE_DEFAULT_CONFIG = {
     # your other configuration
     'theme_advanced_buttons3_add': 'code',
 }
-# Load local settings overrides
-from pgweb.settings.settings_local import *
+
+try:
+    from pgweb.settings.settings_local import *
+except:
+    pass
