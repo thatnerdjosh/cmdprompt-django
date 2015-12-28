@@ -63,7 +63,7 @@ def home(request):
 		'quote': quote,
 		'versions': versions,
 		'planet': planet,
-	}, RequestContext(request))
+	}, NavContext(request, 'home'))
 
 # Community main page (contains surveys and potentially more)
 def community(request):
