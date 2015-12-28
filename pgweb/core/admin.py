@@ -14,10 +14,9 @@ class OrganisationAdmin(admin.ModelAdmin):
 class VersionAdmin(admin.ModelAdmin):
 	list_display = ('versionstring', 'reldate', 'supported', 'current', )
 
-admin.site.register(Version, VersionAdmin)
-admin.site.register(OrganisationType)
-admin.site.register(Organisation, OrganisationAdmin)
-admin.site.register(ImportedRSSFeed)
-admin.site.register(ImportedRSSItem)
-admin.site.register(ModerationNotification)
-
+#admin.site.register(Version, VersionAdmin)
+#admin.site.register(OrganisationType)
+#admin.site.register(Organisation, OrganisationAdmin)
+#admin.site.register(ImportedRSSFeed)
+#admin.site.register(ImportedRSSItem)
+#admin.site.register(ModerationNotification)
