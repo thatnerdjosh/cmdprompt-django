@@ -1,5 +1,7 @@
-Django==1.4.5
+Django==1.7
+Pillow>=2.0.0
 django-markdown==0.2.1
 psycopg2==2.5
 pycrypto==2.6
 simplejson==3.3.0
+django-tinymce>=2.2.0
