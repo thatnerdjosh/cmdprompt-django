@@ -1,5 +1,6 @@
 # Django settings for pgweb project.
 
+ALLOWED_HOSTS=['*'] 
 DEBUG = False
 #TEMPLATE_DEBUG = DEBUG
 
@@ -8,13 +9,6 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-DATABASES={
-	'default': {
-		'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		'NAME': 'pgweb',
-		}
-	}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
