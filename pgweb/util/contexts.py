@@ -40,8 +40,13 @@ class NavContext(RequestContext):
 def _get_gitrev():
 	# Return the current git revision, that is used for
 	# cache-busting URLs.
-	with open('.git/refs/heads/master') as f:
-		return f.readline()[:8]
+	
+	### If there is no master branch known, return 0
+	try:
+		with open('.git/refs/heads/master') as f:
+			return f.readline()[:8]
+	except:
+		return 0
 
 # Template context processor to add information about the root link and
 # the current git revision. git revision is returned as a lazy object so
