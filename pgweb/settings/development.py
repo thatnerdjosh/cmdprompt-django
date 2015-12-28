@@ -1,12 +1,19 @@
 # Django settings for pgweb project.
 
 ALLOWED_HOSTS=['*']
-DEBUG = False
+DEBUG = True
 #TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
 	('PostgreSQL Webmaster', 'webmaster@postgresql.org'),
 )
+
+DATABASES={
+        'default': {
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                }
+          }
+
 
 MANAGERS = ADMINS
 
@@ -35,7 +42,7 @@ MEDIA_ROOT = ''
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/media/'
-STATIC_URL = '/media/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
 	'static',
@@ -73,6 +80,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	'django.contrib.auth.context_processors.auth',
 	'django.contrib.messages.context_processors.messages',
 	'django.core.context_processors.media',
+        'django.core.context_processors.static',
 	'pgweb.util.contexts.PGWebContextProcessor',
 )
 
@@ -160,6 +168,7 @@ TINYMCE_DEFAULT_CONFIG = {
     # your other configuration
     'theme_advanced_buttons3_add': 'code',
 }
+
 
 try:
     from pgweb.settings.settings_local import *
