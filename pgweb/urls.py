@@ -34,7 +34,8 @@ urlpatterns = patterns('',
 
     #ABOUT
     (r'^about/', include('pgweb.about.urls')),
-
+    (r'^blog/', include('pgweb.blog.urls')),
+    
     ###
 	# Sitemap (FIXME: support for >50k urls!)
 	###
