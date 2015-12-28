@@ -1,5 +1,5 @@
 {%extends "base/base.html" %}
-{%block title%}The world's most advanced open source database{%endblock%}
+{%block title%}{{title}}{%endblock%}
 {%block meta%}
   <meta name="description" content="The official site for PostgreSQL, the world's most advanced open source database" />
 {%endblock%}
@@ -75,10 +75,9 @@
 														<h3><a href="#">Testimonials</a></h3>
 															<div>
 																<p>
-																	"The support services allows us to sleep at night knowing that our PostgreSQL databases are proactively monitored
-																	and maintained.” </br>
-																	Charles Hausmann, CTO </br>
-																	VaultLogix
+																	"{{testimonial.quote}}” </br>
+																	{{testimonial.who}}</br>
+																	{{testimonial.org}}
 																</p>
 															</div>
 															<a href="#" class="button alt">View More</a>
@@ -127,28 +126,23 @@
 										<div class="9u 12u(mobile)">
 											<h2 class="major no-margin"><span>Latest Blog Posts</span></h2>
 											<div class="content content-left">
-
-												<!-- Featured Post -->
-												<article class="box post">
-													<header>
-														<h3><a href="#">Welcome to PGConf.EU</a></h3>
-														<ul class="meta">
-															<li class="icon fa-clock-o">Oct 26th, 2015</li>
-															<li class="icon fa-comments"><a href="#">Joshua Drake</a></li>
-														</ul>
-													</header>
-													<section class="module parallax parallax blog-1">
-														<div class="container"></div>
-													</section>
-													<p>
-														I am sitting in a glorious (although not the conference) hotel, writing this article. It is 13:58, at
-														least it is where I am from, the great Pacific Northwest. I must admit, I miss the trees although I hear
-														there are lots of them if you leave the city. What is there to say about this great city that the European
-														community picked for their latest conference?
-													</p>
-													<a href="#" class="button alt">Read More</a>
-												</article>
-
+                        {% if featured_post %}
+                          <!-- Featured Post -->
+  												<article class="box post">
+  													<header>
+  														<h3><a href="#">{{featured_post.title}}</a></h3>
+  														<ul class="meta">
+  															<li class="icon fa-clock-o">{{featured_post.date_created}}</li>
+  															<li class="icon fa-comments"><a href="#">{{featured_post.author.first_name}} {{featured_post.author.last_name}}</a></li>
+  														</ul>
+  													</header>
+  													<section class="module parallax parallax blog-1" {% if featured_post.feature_image %} style="background-image: url('/{{featured_post.feature_image}}');" {% endif %}>
+  														<div class="container"></div>
+  													</section>
+  													{{featured_post.body |safe}}
+  													<a href="/blog/{{featured_post.url_slug}}" class="button alt">Read More</a>
+  												</article>
+                        {% endif %}
 											</div>
 										</div>
 										<div class="3u 12u(mobile)">
@@ -156,56 +150,20 @@
 
 												<!-- Archives -->
 												<ul class="divided">
-													<li>
-														<article class="box post-summary">
-															<h3><a href="#">PostgreSQL 9.5, Community, Features and More!</a></h3>
-															<ul class="meta">
-																<li class="icon fa-clock-o">Oct 16, 2015</li>
-																<li class="icon fa-comments"><a href="#">Joshua Drake</a></li>
-															</ul>
-														</article>
-													</li>
-													<li>
-														<article class="box post-summary">
-															<h3><a href="#">Tips for West Side U.S. Folks Going to PGConf.EU in October</a></h3>
-															<ul class="meta">
-																<li class="icon fa-clock-o">Jul 9, 2015</li>
-																<li class="icon fa-comments"><a href="#">Joshua Drake</a></li>
-															</ul>
-														</article>
-													</li>
-													<li>
-														<article class="box post-summary">
-															<h3><a href="#">A new user discovers the PostgreSQL public schema</a></h3>
-															<ul class="meta">
-																<li class="icon fa-clock-o">Jun 2, 2015</li>
-																<li class="icon fa-comments"><a href="#">Joshua Drake</a></li>
-															</ul>
-														</article>
-													</li>
-													<li>
-														<article class="box post-summary">
-															<h3><a href="#">Elevating your confidence with the Elephant's restoration capabilities</a></h3>
-															<ul class="meta">
-																<li class="icon fa-clock-o">Jun 2, 2015</li>
-																<li class="icon fa-comments"><a href="#">Joshua Drake</a></li>
-															</ul>
-														</article>
-													</li>
-													<li>
-														<article class="box post-summary">
-															<h3><a href="#">Let's delete contrib!</a></h3>
-															<ul class="meta">
-																<li class="icon fa-clock-o">May 28, 2015</li>
-																<li class="icon fa-comments"><a href="#">Joshua Drake</a></li>
-															</ul>
-														</article>
-													</li>
-												</ul>
-
-												<a href="#" class="button alt">Browse Archives</a>
-												<!-- END Archives -->
-
+                          {% for post in latest_posts %}
+  													<li>
+  														<article class="box post-summary">
+  															<h3><a href="#">{{post.title}}</a></h3>
+  															<ul class="meta">
+  																<li class="icon fa-clock-o">{{post.date_created}}</li>
+  																<li class="icon fa-comments"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></li>
+  															</ul>
+  														</article>
+  													</li>
+                          {% endfor %}
+                        </ul>
+  												<a href="#" class="button alt">Browse Archives</a>
+  												<!-- END Archives -->
 											</div>
 										</div>
 									</div>
