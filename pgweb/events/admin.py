@@ -35,4 +35,4 @@ class EventAdmin(PgwebAdmin):
 	form = EventAdminForm
 
 
-admin.site.register(Event, EventAdmin)
+#admin.site.register(Event, EventAdmin)
