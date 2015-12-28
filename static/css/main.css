@@ -568,7 +568,7 @@ table.default thead {
 
 #banner-wrapper {
 		position: relative;
-		background-image: url("/media/images/banner.jpg");
+		background-image: url("/static/images/banner.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -592,7 +592,7 @@ table.default thead {
 #banner {
 		position: relative;
     background-attachment: fixed;
-		background-image: url("/media/images/overlay.png"), url("/media/images/highlight.png");
+		background-image: url("/static/images/overlay.png"), url("/static/images/highlight.png");
 		background-position: center center;
 		background-size: auto, 100% 250%;
 		background-repeat: repeat, no-repeat;
@@ -907,7 +907,7 @@ table.default thead {
 				left: 0;
 				z-index: 1000;
 				background-color: rgba(255, 255, 255, 0.95);
-				background-image: url("/media/images/overlay.png");
+				background-image: url("/static/images/overlay.png");
 				width: 100%;
 				height: 3.25em;
 				line-height: 3.25em;
@@ -1491,7 +1491,7 @@ table.default thead {
 				width: 100%;
 				z-index: 10001;
 				background-color: rgba(21, 38, 23, 0.8);
-				background-image: url("/media/images/overlay.png");
+				background-image: url("/static/images/overlay.png");
    	}
 
   	#titleBar .title {
@@ -1563,10 +1563,10 @@ table.default thead {
 				width: 275px;
 				z-index: 10002;
 				background-color: #353c37;
-				background-image: url("/media/images/overlay.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-				background-image: url("/media/images/overlay.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-				background-image: url("/media/images/overlay.png"), -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-				background-image: url("/media/images/overlay.png"), linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+				background-image: url("/static/images/overlay.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+				background-image: url("/static/images/overlay.png"), -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+				background-image: url("/static/images/overlay.png"), -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+				background-image: url("/static/images/overlay.png"), linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 				background-repeat: repeat, no-repeat;
 				background-size: auto, 100% 100%;
 				font-family: 'Open Sans Condensed', sans-serif;
@@ -1962,28 +1962,28 @@ section.module.parallax h1 {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 section.module.parallax-1 {
-  background-image: url("/media/images/banner.jpeg");
+  background-image: url("/static/images/banner.jpeg");
 }
 section.module.parallax-2 {
-  background-image: url("/media/images/banner2.jpg");
+  background-image: url("/static/images/banner2.jpg");
 }
 section.module.parallax-3 {
-  background-image: url("/media/images/banner3.jpeg");
+  background-image: url("/static/images/banner3.jpeg");
 }
 section.module.parallax-4 {
-  background-image: url("/media/images/banner4.jpeg");
+  background-image: url("/static/images/banner4.jpeg");
 }
 section.module.parallax-5 {
-  background-image: url("/media/images/banner5.jpg");
+  background-image: url("/static/images/banner5.jpg");
 }
 section.module.parallax-6 {
-  background-image: url("/media/images/banner6.jpg");
+  background-image: url("/static/images/banner6.jpg");
 }
 section.module.parallax-7 {
-  background-image: url("/media/images/banner7.jpeg");
+  background-image: url("/static/images/banner7.jpeg");
 }
 section.module.parallax.blog-1 {
-  background-image: url("/media/images/blogfeatured.jpeg");
+  background-image: url("/static/images/blogfeatured.jpeg");
   border-radius: 20px;
 }
 
