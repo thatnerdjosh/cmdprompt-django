@@ -14,4 +14,4 @@ class DocCommentAdmin(admin.ModelAdmin):
 	list_filter = ('approved', )
 	actions = [approve_doccomment, ]
 
-admin.site.register(DocComment, DocCommentAdmin)
+#admin.site.register(DocComment, DocCommentAdmin)
