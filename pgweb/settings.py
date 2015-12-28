@@ -98,24 +98,22 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django_markwhat',
 	'django.contrib.staticfiles',
+    'pgweb.about',
     'pgweb.core',
     'pgweb.mailqueue',
-    'pgweb.account',
     'pgweb.news',
     'pgweb.events',
     'pgweb.quotes',
-    'pgweb.downloads',
     'pgweb.docs',
-    'pgweb.contributors',
     'pgweb.profserv',
     'pgweb.lists',
     'pgweb.sponsors',
     'pgweb.survey',
     'pgweb.misc',
-    'pgweb.featurematrix',
 	'pgweb.pwn',
 	'pgweb.search',
     'pgweb.pugs',
+	'tinymce'
 ]
 
 #
@@ -162,6 +160,10 @@ FRONTEND_SMTP_RELAY="magus.postgresql.org"             # Where to relay user gen
 SITE_UPDATE_TRIGGER_FILE='/tmp/pgweb.update_trigger'   # Where to drop update trigger file
 SITE_UPDATE_HOSTS=('127.0.0.1', )                      # Hosts that can trigger a site update
 
+
+TINYMCE_DEFAULT_CONFIG = {
+    # your other configuration
+    'theme_advanced_buttons3_add': 'code',
+}
 # Load local settings overrides
 from settings_local import *
-
