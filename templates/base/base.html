@@ -27,46 +27,20 @@
        <nav id="nav">
          <ul>
            <li><span class="header"><img src="./images/cmd.jpg" alt="" /></span></li>
-           <li class="current"><a href="./index.html">Home</a></li>
-           <li>
-             <a href="./about/about.html">About</a>
-             <ul>
-               <li><a href="./about/careers.html">Careers</a></li>
-               <li><a href="./about/partners.html">Partners</a></li>
-             </ul>
-           </li>
-           <li>
-             <a href="./products/products.html">Products</a>
-             <ul>
-               <li><a href="./products/auditandtune.html">Audit and Tune</a></li>
-               <li><a href="./products/highavailabilityclusters.html">High Availability Clusters</a></li>
-               <li><a href="./products/hotcoldstandby.html">Hot Standby / DRBD</a></li>
-               <li><a href="./products/performanceaudit.html">Performance Audit</a></li>
-               <li><a href="./products/postgresqlcore.html">PostgreSQL Core</a></li>
-               <li><a href="./products/warmstandby.html">Warm Standby</a></li>
-             </ul>
-           </li>
-           <li>
-             <a href="./services/services.html">Services</a>
-             <ul>
-               <li><a href="./services/dedicatedhosting.html">Dedicated Hosting</a></li>
-               <li><a href="./services/highavailability.html">High Availability</a></li>
-               <li><a href="./services/onsite.html">On-Site</a></li>
-               <li><a href="./services/performancetuning.html">Performance Tuning</a></li>
-               <li><a href="./services/remotehands.html">Remote Hands</a></li>
-               <li><a href="./services/training.html">Training</a></li>
-             </ul>
-           </li>
-           <li>
-             <a href="./support/support.html">Support</a>
-             <ul>
-               <li><a href="./support/incidentpacks.html">Incident Packs</a></li>
-               <li><a href="./support/options.html">Support Options</a></li>
-               <li><a href="./support/terms.html">Terms of Service</a></li>
-             </ul>
-           </li>
-           <li><a href="./blog/blog.html">Blog</a></li>
-           <li><a href="./contact/contact.html">Contact</a></li>
+            {%for m in navmenu%}
+            {%if not forloop.first %}</li>{%endif%}
+            <li {%if navsection == m.navcontext%}class="current"{%endif%}><a href="{{m.link}}">{{m.title}}</a>
+             {%if m.submenu %}
+              <ul>
+              {%for sm in m.submenu %}
+               <li><a href="{{sm.link}}">{{sm.title}}</a></li>
+              {%endfor%}
+              </ul>
+             {%endif%}
+             {%if forloop.last%}
+            </li>
+             {%endif%}
+            {%endfor%}
          </ul>
        </nav>
        {%block layoutblock%}{%endblock%}
