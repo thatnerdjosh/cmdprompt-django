@@ -156,19 +156,19 @@ def sitemap(request):
 # dynamically, since the output will be cached (for all non-SSL users, which
 # is the vast majority) anyway.
 _dynamic_cssmap = {
-	'base': ['media/css/main.css',
-			 'media/css/font-awesome.min.css',
-			 'media/css/jcarousel.css',
-			 'media/css/images.css',
-			 'media/css/grid.css',
-			 'media/css/forms.css',
-			 'media/css/copyright.css',
-			 'media/css/containers.css',
-			 'media/css/button.css'],
-	'docs': ['media/css/global.css',
-			 'media/css/table.css',
-			 'media/css/text.css',
-		     'media/css/docs.css'],
+	'base': ['static/css/main.css',
+			 'static/css/font-awesome.min.css',
+			 'static/css/jcarousel.css',
+			 'static/css/images.css',
+			 'static/css/grid.css',
+			 'static/css/forms.css',
+			 'static/css/copyright.css',
+			 'static/css/containers.css',
+			 'static/css/button.css'],
+	'docs': ['static/css/global.css',
+			 'static/css/table.css',
+			 'static/css/text.css',
+		     'static/css/docs.css'],
 	}
 @ssl_optional
 @cache(hours=6)

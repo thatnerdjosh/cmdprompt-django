@@ -1,7 +1,7 @@
 # Django settings for pgweb project.
 
 ALLOWED_HOSTS=['*']
-DEBUG = True
+DEBUG = False
 #TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

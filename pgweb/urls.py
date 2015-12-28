@@ -1,5 +1,7 @@
 from django.conf.urls import *
 from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Register our save signal handlers
 from pgweb.util.bases import register_basic_signal_handlers
@@ -66,7 +68,7 @@ urlpatterns = patterns('',
 
     # This should not happen in production - serve by the webserver natively!
     url(r'^(favicon.ico)$', 'django.views.static.serve', {
-        'document_root': '../media',
+        'document_root': '../static',
     }),
 
     # Crash testing URL :-)
@@ -79,3 +81,14 @@ urlpatterns = patterns('',
     (r'^(.*)/$', 'pgweb.core.views.fallback'),
 
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.STATIC_ROOT,
+        }),
+    )
+
