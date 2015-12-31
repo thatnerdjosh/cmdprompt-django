@@ -20,7 +20,7 @@
               <li class="icon fa-comments"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></li>
             </ul>
           </header>
-          {{post.body |safe |slice:":255" }}
+          {{post.body |safe |slice:":255" }}...
           <p><a href="/blog/{{post.url_slug}}" class="button alt">Read More</a></p>
         </section>
       {% endfor %}

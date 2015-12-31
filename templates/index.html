@@ -75,7 +75,7 @@
 														<h3><a href="#">Testimonials</a></h3>
 															<div>
 																<p>
-																	"{{testimonial.quote}}” </br>
+																	"{{testimonial.quote |slice:":150" }}...” </br>
 																	{{testimonial.who}}</br>
 																	{{testimonial.org}}
 																</p>
@@ -139,7 +139,7 @@
   													<section class="module parallax parallax blog-1" {% if featured_post.feature_image %} style="background-image: url('{{MEDIA_URL}}{{featured_post.feature_image}}');" {% endif %}>
   														<div class="container"></div>
   													</section>
-  													{{featured_post.body |safe |slice:":255" }}
+  													{{featured_post.body |safe |slice:":255" }}...
   													<a href="/blog/{{featured_post.url_slug}}" class="button alt">Read More</a>
   												</article>
                         {% endif %}
