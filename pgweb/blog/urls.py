@@ -11,5 +11,5 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     #(r'^$', 'pgweb.blog.views.all_posts'),
-    #(r'^/?P<blog>^[a-zA-Z].*/$', 'pgweb.blog.views.by_slug'),
+    (r'^(?P<blog>^[a-zA-Z].*)/$', 'pgweb.blog.views.by_slug'),
 )
