@@ -130,16 +130,16 @@
                           <!-- Featured Post -->
   												<article class="box post">
   													<header>
-  														<h3><a href="#">{{featured_post.title}}</a></h3>
+  														<h3><a href="/blog/{{featured_post.url_slug}}">{{featured_post.title}}</a></h3>
   														<ul class="meta">
   															<li class="icon fa-clock-o">{{featured_post.date_created}}</li>
   															<li class="icon fa-comments"><a href="#">{{featured_post.author.first_name}} {{featured_post.author.last_name}}</a></li>
   														</ul>
   													</header>
-  													<section class="module parallax parallax blog-1" {% if featured_post.feature_image %} style="background-image: url('/media/{{featured_post.feature_image}}');" {% endif %}>
+  													<section class="module parallax parallax blog-1" {% if featured_post.feature_image %} style="background-image: url('{{featured_post.feature_image}}');" {% endif %}>
   														<div class="container"></div>
   													</section>
-  													{{featured_post.body |safe}}
+  													{{featured_post.body |safe |slice:":255" }}
   													<a href="/blog/{{featured_post.url_slug}}" class="button alt">Read More</a>
   												</article>
                         {% endif %}
@@ -153,7 +153,7 @@
                           {% for post in latest_posts %}
   													<li>
   														<article class="box post-summary">
-  															<h3><a href="#">{{post.title}}</a></h3>
+  															<h3><a href="/blog/{{post.url_slug}}">{{post.title}}</a></h3>
   															<ul class="meta">
   																<li class="icon fa-clock-o">{{post.date_created}}</li>
   																<li class="icon fa-comments"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></li>
