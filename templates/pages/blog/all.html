@@ -13,7 +13,15 @@
           <h2 class="major no-margin"><span>{{post.title}}</span></h2>
         </section>
         <section>
-          {{post.body |safe}}
+          <header>
+            <h3><a href="/blog/{{featured_post.url_slug}}">{{post.title}}</a></h3>
+            <ul class="meta">
+              <li class="icon fa-clock-o">{{post.date_created}}</li>
+              <li class="icon fa-comments"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></li>
+            </ul>
+          </header>
+          {{post.body |safe |slice:":255" }}
+          <p><a href="/blog/{{post.url_slug}}" class="button alt">Read More</a></p>
         </section>
       {% endfor %}
 

@@ -11,6 +11,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'pgweb.blog.views.all_posts'),
-    (r'^(?P<page>.*)/$', 'pgweb.blog.views.all_posts'),
+    (r'^(?P<page>[0-9].*)/$', 'pgweb.blog.views.all_posts'),
     (r'^(?P<blog>^[a-zA-Z].*)/$', 'pgweb.blog.views.by_slug'),
 )
