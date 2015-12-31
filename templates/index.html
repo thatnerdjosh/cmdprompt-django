@@ -136,7 +136,7 @@
   															<li class="icon fa-comments"><a href="#">{{featured_post.author.first_name}} {{featured_post.author.last_name}}</a></li>
   														</ul>
   													</header>
-  													<section class="module parallax parallax blog-1" {% if featured_post.feature_image %} style="background-image: url('/{{featured_post.feature_image}}');" {% endif %}>
+  													<section class="module parallax parallax blog-1" {% if featured_post.feature_image %} style="background-image: url('{{MEDIA_URL}}{{featured_post.feature_image}}');" {% endif %}>
   														<div class="container"></div>
   													</section>
   													{{featured_post.body |safe |slice:":255" }}
