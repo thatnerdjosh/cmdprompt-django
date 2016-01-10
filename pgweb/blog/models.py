@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length=100)
-    url_slug = models.CharField(default=None, null=True, max_length=100, unique=True)
+    title = models.TextField()
+    url_slug = models.TextField(unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, blank=True, null=True)
