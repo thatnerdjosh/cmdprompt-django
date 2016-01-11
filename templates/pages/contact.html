@@ -1,0 +1,91 @@
+{%extends "base/base.html"%}
+{%block title%}Contact{%endblock%}
+{%block layoutblock%}
+	<section class="module parallax parallax-3">
+	  <div class="container"></div>
+	</section>
+
+  <!-- Main -->
+	<div id="main-wrapper">
+		<div id="main" class="container">
+			<div class="row 200%">
+				<div class="12u mobileParallaxFix">
+          {% for contact_section in contact_sections %}
+					<section class="box features no-margin">
+						<h2 class="major no-margin"><span>{{contact_section.name}}</span></h2>
+					</section>
+					<section>
+						<p>
+							{{contact_section.description}}
+						</p>
+					</section>
+          {% endfor %}
+				</div>
+			</div>
+
+      <div class="row 200%">
+        <div class="12u">
+          <div class="12u(mobile)">
+            <!-- Features -->
+              <section class="box features">
+                <h2 class="major"><span>Get in Touch</span></h2>
+                <a name="contact"></a>
+                <div>
+                  <div class="row">
+                    <div class="4u 12u(mobile)">
+
+                    <!-- Feature -->
+                      <section class="box feature">
+                        <h3><a href="#">Our Office</a></h3>
+                        <img src="/static/images/mobile-phone.svg" class="productImage" />
+                        <p>
+                          Command Prompt, Inc.</br>
+                          9618 Jefferson Hwy. PMB 329</br>
+                          Baton Rouge, LA 70809</br>
+                          Phone +1 503 667 4564</br>
+                          Emergency: 1 800 492 2240
+                        </p>
+                      </section>
+
+                      </div>
+
+                      <div class="4u 12u(mobile)">
+
+                      <!-- Feature -->
+                        <section class="box feature">
+                          <h3><a href="#">USPS</a></h3>
+                          <img src="/static/images/opened.svg" class="productImage" />
+                          <p>
+                            Command Prompt, Inc.</br>
+                            9618 Jefferson Hwy. PMB 329</br>
+                            Baton Rouge, LA 70809
+                          </p>
+                        </section>
+
+                    </div>
+
+                    <div class="4u 12u(mobile)">
+
+                    <!-- Feature -->
+                      <section class="box feature">
+                        <h3><a href="#">Email</a></h3>
+                        <img src="/static/images/email.svg" class="productImage" />
+                        <p>
+                          You can <a href="#email">directly email us with the above form</a> or email from
+                          an email client of your choice!</br>
+                          For sales inquiries or general information: <a href="mailto:sales@commandprompt.com">sales@commandprompt.com</a></br>
+                          For inquiries for the Webmaster: <a href="mailto:webmaster@commandprompt.com">webmaster@commandprompt.com</a></br>
+                          For support: <a href="mailto:support@commandprompt.com">support@commandprompt.com</a></br>
+                        </p>
+                      </section>
+
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+{% endblock %}
