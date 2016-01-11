@@ -1,0 +1,43 @@
+{% for feature_grid_listing in feature_grid_listings %}
+<!-- BEGIN ROW 1 -->
+<div class="row 200%">
+  <div class="12u">
+    <div class="12u(mobile)">
+      <!-- Features -->
+        <section class="box features">
+          <h2 class="major"><span>{{feature_grid_listing.0.feature_grid.section_name}}</span></h2>
+          <div>
+          {% for feature in feature_grid_listing %}
+            {% if forloop.counter0|divisibleby:3 %}
+            <div class="row">
+            {% endif %}
+              <div class="4u 12u(mobile)">
+
+              <!-- Feature -->
+                <section class="box feature">
+                  <h3>{{feature.name}}</h3>
+                  <p>
+                    {{feature.description}}
+                  </p>
+                </section>
+              </div>
+            {% if forloop.counter|divisibleby:3 %}
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% for section in sections %}
+  <section class="box features no-margin">
+    <h2 class="major no-margin"><span>{{section.name}}</span></h2>
+  </section>
+  <section>
+    <p>
+      {{section.description|safe}}
+    </p>
+  </section>
+{% endfor %}
