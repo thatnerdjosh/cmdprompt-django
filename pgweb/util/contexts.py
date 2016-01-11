@@ -21,6 +21,14 @@ sitenav = [
 			{'title': 'Remote Hands', 'link':'/services/remotehands/'},
 			{'title': 'Training', 'link':'/services/training/'},
 	]},
+	{'title': 'Products', 'navcontext': 'products', 'link':'/products/', 'submenu': [
+			{'title': 'Audit and Tune', 'link':'/products/auditandtune/'},
+			{'title': 'High Availability Clusters', 'link': '/products/highavailabilityclusters/'},
+			{'title': 'Hot Standby / DRBD', 'link': '/products/hotcoldstandby/'},
+			{'title': 'Performance Audit', 'link': '/products/performanceaudit/'},
+			{'title': 'PostgreSQL Core', 'link': '/products/postgresqlcore/'},
+			{'title': 'Warm Standby', 'link': '/products/warmstandby/'}
+	]},
 	{'title': 'Support', 'navcontext': 'support', 'link':'/support/', 'submenu': [
 		{'title': 'Incident Packs', 'link':'/support/incidentpacks/'},
 		{'title': 'Support Options', 'link':'/support/supportoptions/'},
@@ -40,7 +48,7 @@ class NavContext(RequestContext):
 def _get_gitrev():
 	# Return the current git revision, that is used for
 	# cache-busting URLs.
-	
+
 	### If there is no master branch known, return 0
 	try:
 		with open('.git/refs/heads/master') as f:
