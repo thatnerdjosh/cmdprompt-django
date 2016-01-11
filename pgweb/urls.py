@@ -38,6 +38,7 @@ urlpatterns = patterns('',
     (r'^about/', include('pgweb.about.urls')),
     (r'^blog/', include('pgweb.blog.urls')),
     (r'^services/', include('pgweb.services.urls')),
+    (r'^products/', include('pgweb.products.urls')),
 
     ###
 	# Sitemap (FIXME: support for >50k urls!)
