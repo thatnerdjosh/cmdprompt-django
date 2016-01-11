@@ -113,11 +113,12 @@ INSTALLED_APPS = [
     'pgweb.sponsors',
     'pgweb.survey',
     'pgweb.misc',
-	'pgweb.pwn',
-	'pgweb.search',
+    'pgweb.products',
+    'pgweb.pwn',
+    'pgweb.search',
     'pgweb.services',
     'pgweb.pugs',
-	'tinymce'
+    'tinymce'
 ]
 
 #
