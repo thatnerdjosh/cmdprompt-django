@@ -5,6 +5,7 @@ from django.conf import settings
 # This is the whole site navigation structure. Stick in a smarter file?
 from pgweb.services.models import Service
 from pgweb.products.models import Product
+from pgweb.support.models import SupportPage
 
 class NavContext(RequestContext):
 	def __init__(self, request, section):
@@ -21,6 +22,13 @@ class NavContext(RequestContext):
 		for product in products:
 			product_url_list.append({'title': product.name, 'link': '/products/' + product.url_slug})
 
+		support_pages = SupportPage.objects.all()
+
+		support_page_list = []
+		for page in support_pages:
+			if page.url_slug != "/":
+				support_page_list.append({'title': page.name, 'link': '/support/' + page.url_slug})
+
 		sitenav = [
 			{'title': 'Home', 'navcontext': 'home', 'link': '/'},
 			{'title': 'About', 'navcontext': 'about', 'link':'/about/', 'submenu': [
@@ -29,11 +37,7 @@ class NavContext(RequestContext):
 			]},
 			{'title': 'Products', 'navcontext': 'products', 'link':'/products/', 'submenu': product_url_list},
 			{'title': 'Services', 'navcontext': 'services', 'link':'/services/', 'submenu': service_url_list},
-			{'title': 'Support', 'navcontext': 'support', 'link':'/support/', 'submenu': [
-				{'title': 'Incident Packs', 'link':'/support/incidentpacks/'},
-				{'title': 'Support Options', 'link':'/support/supportoptions/'},
-				{'title': 'Terms of Service', 'link':'/support/terms/'},
-			]},
+			{'title': 'Support', 'navcontext': 'support', 'link':'/support/', 'submenu': support_page_list},
 			{'title': 'Blog', 'navcontext': 'blog', 'link': '/blog/'},
 			{'title': 'Contact', 'navcontext': 'contact', 'link': '/contact/'}
 		]

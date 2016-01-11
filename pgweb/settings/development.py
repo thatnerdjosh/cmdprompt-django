@@ -117,6 +117,7 @@ INSTALLED_APPS = [
     'pgweb.pwn',
     'pgweb.search',
     'pgweb.services',
+	'pgweb.support',
     'pgweb.pugs',
     'tinymce'
 ]
