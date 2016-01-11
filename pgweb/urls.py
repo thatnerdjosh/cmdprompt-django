@@ -37,6 +37,7 @@ urlpatterns = patterns('',
     #ABOUT
     (r'^about/', include('pgweb.about.urls')),
     (r'^blog/', include('pgweb.blog.urls')),
+    (r'^contact/', include('pgweb.contact.urls')),
     (r'^services/', include('pgweb.services.urls')),
     (r'^products/', include('pgweb.products.urls')),
     (r'^support/', include('pgweb.support.urls')),
