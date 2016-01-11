@@ -5,11 +5,11 @@
       <!-- Features -->
         <section class="box features">
           <div>
-            <h2 class="major"><span>Packaged Services</span></h2>
-            <img class="headerImage" src="/static/images/package.svg"></img>
+            <h2 class="major"><span>Cloud Consulting</span></h2>
+            <img class="headerImage" src="/static/images/cloud.svg"></img>
           </div>
           <div>
-            {% for service in packageServices %}
+            {% for service in cloudServices %}
               {% if forloop.counter0|divisibleby:3 %}
               <div class="row">
               {% endif %}
@@ -18,8 +18,7 @@
                   <section class="box feature">
                     <h3><a href="#">{{service.name}}</a></h3>
                     <p>
-                      {{service.description}}<br />
-                      View the {{service.name}} page <strong><a href="{{service.link}}">here.</a></strong>
+                      {{service.description}}
                     </p>
                   </section>
                 </div>

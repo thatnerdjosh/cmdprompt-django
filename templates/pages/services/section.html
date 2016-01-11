@@ -1,0 +1,10 @@
+{% for section in sections %}
+  <section class="box features no-margin">
+    <h2 class="major no-margin"><span>{{section.name}}</span></h2>
+  </section>
+  <section>
+    <p>
+      {{section.description|safe}}
+    </p>
+  </section>
+{% endfor %}
