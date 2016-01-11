@@ -6,38 +6,37 @@ from django.conf import settings
 from pgweb.services.models import Service
 from pgweb.products.models import Product
 
-services = Service.objects.all()
-
-service_url_list = []
-for service in services:
-	service_url_list.append({'title': service.name, 'link': '/services/' + service.url_slug})
-
-products = Product.objects.all()
-
-product_url_list = []
-for product in products:
-	product_url_list.append({'title': product.name, 'link': '/products/' + product.url_slug})
-
-sitenav = [
-	{'title': 'Home', 'navcontext': 'home', 'link': '/'},
-	{'title': 'About', 'navcontext': 'about', 'link':'/about/', 'submenu': [
-		{'title': 'Careers', 'link':'/about/careers/'},
-		{'title': 'Partners', 'link':'/about/partners/'},
-	]},
-	{'title': 'Products', 'navcontext': 'products', 'link':'/products/', 'submenu': product_url_list},
-	{'title': 'Services', 'navcontext': 'services', 'link':'/services/', 'submenu': service_url_list},
-	{'title': 'Support', 'navcontext': 'support', 'link':'/support/', 'submenu': [
-		{'title': 'Incident Packs', 'link':'/support/incidentpacks/'},
-		{'title': 'Support Options', 'link':'/support/supportoptions/'},
-		{'title': 'Terms of Service', 'link':'/support/terms/'},
-	]},
-	{'title': 'Blog', 'navcontext': 'blog', 'link': '/blog/'},
-	{'title': 'Contact', 'navcontext': 'contact', 'link': '/contact/'}
-]
-
 class NavContext(RequestContext):
 	def __init__(self, request, section):
 		RequestContext.__init__(self, request)
+		services = Service.objects.all()
+
+		service_url_list = []
+		for service in services:
+			service_url_list.append({'title': service.name, 'link': '/services/' + service.url_slug})
+
+		products = Product.objects.all()
+
+		product_url_list = []
+		for product in products:
+			product_url_list.append({'title': product.name, 'link': '/products/' + product.url_slug})
+
+		sitenav = [
+			{'title': 'Home', 'navcontext': 'home', 'link': '/'},
+			{'title': 'About', 'navcontext': 'about', 'link':'/about/', 'submenu': [
+				{'title': 'Careers', 'link':'/about/careers/'},
+				{'title': 'Partners', 'link':'/about/partners/'},
+			]},
+			{'title': 'Products', 'navcontext': 'products', 'link':'/products/', 'submenu': product_url_list},
+			{'title': 'Services', 'navcontext': 'services', 'link':'/services/', 'submenu': service_url_list},
+			{'title': 'Support', 'navcontext': 'support', 'link':'/support/', 'submenu': [
+				{'title': 'Incident Packs', 'link':'/support/incidentpacks/'},
+				{'title': 'Support Options', 'link':'/support/supportoptions/'},
+				{'title': 'Terms of Service', 'link':'/support/terms/'},
+			]},
+			{'title': 'Blog', 'navcontext': 'blog', 'link': '/blog/'},
+			{'title': 'Contact', 'navcontext': 'contact', 'link': '/contact/'}
+		]
 		self.update({'navmenu': sitenav})
 		self.update({'navsection': section})
 
