@@ -37,7 +37,8 @@ urlpatterns = patterns('',
     #ABOUT
     (r'^about/', include('pgweb.about.urls')),
     (r'^blog/', include('pgweb.blog.urls')),
-    
+    (r'^services/', include('pgweb.services.urls')),
+
     ###
 	# Sitemap (FIXME: support for >50k urls!)
 	###
@@ -91,4 +92,3 @@ if settings.DEBUG:
             'document_root': settings.STATIC_ROOT,
         }),
     )
-
