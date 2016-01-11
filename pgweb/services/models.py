@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 class Service(models.Model):
     name = models.TextField()
@@ -8,6 +9,14 @@ class Service(models.Model):
     def __unicode__(self):
 	    return self.name
 
+class ServiceSection(models.Model):
+    name = models.TextField()
+    description = HTMLField()
+    service = models.ForeignKey(Service, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
 class PackageService(models.Model):
     name = models.TextField()
     link = models.TextField(unique=True)
@@ -15,3 +24,17 @@ class PackageService(models.Model):
 
     def __unicode__(self):
 	    return self.name
+
+class ProfessionalService(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+
+    def __unicode__(self):
+        return self.name
+
+class CloudService(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+
+    def __unicode__(self):
+        return self.name
