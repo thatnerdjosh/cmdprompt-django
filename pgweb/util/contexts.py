@@ -3,32 +3,29 @@ from django.utils.functional import SimpleLazyObject
 from django.conf import settings
 
 # This is the whole site navigation structure. Stick in a smarter file?
+from pgweb.services.models import Service
+from pgweb.products.models import Product
+
+services = Service.objects.all()
+
+service_url_list = []
+for service in services:
+	service_url_list.append({'title': service.name, 'link': '/services/' + service.url_slug})
+
+products = Product.objects.all()
+
+product_url_list = []
+for product in products:
+	product_url_list.append({'title': product.name, 'link': '/products/' + product.url_slug})
+
 sitenav = [
 	{'title': 'Home', 'navcontext': 'home', 'link': '/'},
 	{'title': 'About', 'navcontext': 'about', 'link':'/about/', 'submenu': [
 		{'title': 'Careers', 'link':'/about/careers/'},
 		{'title': 'Partners', 'link':'/about/partners/'},
 	]},
-	{'title': 'Services', 'navcontext': 'services', 'link':'/services/', 'submenu': [
-			{'title': 'Audit and Tune', 'link':'/services/auditandtune/'},
-			{'title': 'High Availability Clusters', 'link':'/services/highavailabilityclusters'},
-			{'title': 'Hot Standby / DRBD', 'link':'/services/hotcoldstandby'},
-			{'title': 'Performance Audit', 'link':'/services/performanceaudit'},
-			{'title': 'PostgreSQL Core', 'link':'/services/postgresqlcore'},
-			{'title': 'Warm Standby', 'link':'/services/warmstandby'},
-			{'title': 'Dedicated Hosting', 'link':'/services/dedicatedhosting/'},
-			{'title': 'On-Site', 'link':'/services/onsite/'},
-			{'title': 'Remote Hands', 'link':'/services/remotehands/'},
-			{'title': 'Training', 'link':'/services/training/'},
-	]},
-	{'title': 'Products', 'navcontext': 'products', 'link':'/products/', 'submenu': [
-			{'title': 'Audit and Tune', 'link':'/products/auditandtune/'},
-			{'title': 'High Availability Clusters', 'link': '/products/highavailabilityclusters/'},
-			{'title': 'Hot Standby / DRBD', 'link': '/products/hotcoldstandby/'},
-			{'title': 'Performance Audit', 'link': '/products/performanceaudit/'},
-			{'title': 'PostgreSQL Core', 'link': '/products/postgresqlcore/'},
-			{'title': 'Warm Standby', 'link': '/products/warmstandby/'}
-	]},
+	{'title': 'Products', 'navcontext': 'products', 'link':'/products/', 'submenu': product_url_list},
+	{'title': 'Services', 'navcontext': 'services', 'link':'/services/', 'submenu': service_url_list},
 	{'title': 'Support', 'navcontext': 'support', 'link':'/support/', 'submenu': [
 		{'title': 'Incident Packs', 'link':'/support/incidentpacks/'},
 		{'title': 'Support Options', 'link':'/support/supportoptions/'},
