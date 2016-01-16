@@ -894,8 +894,10 @@ table.default thead {
 		}
 
 		#header .logo p {
-				display: inline;
+				display: block;
 				color: #094074;
+        margin-bottom: 0;
+        text-transform: none;
 		}
 
 
