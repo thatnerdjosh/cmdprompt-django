@@ -22,12 +22,14 @@
           </header>
           {{post.short_description}}
           <p><a href="/blog/{{post.url_slug}}" class="button alt">Read More</a></p>
-          <p>Categories: 
+      {% if post.categories.all %} 
+       <p>Categories: 
             {% for category in post.categories.all %}
               <a href="/blog/categories/{{category.url_slug}}">{{ category.name }}</a>
             {% endfor %}
           </p>
-        </section>
+      {% endif %}   
+      </section>
       {% endfor %}
 
       <div class="pagination">
