@@ -8,10 +8,10 @@
 <!-- Main -->
   <div id="main-wrapper">
     <div id="main" class="container">
-      {% for post in posts %}
         <section class="box features no-margin">
-          <h2 class="major no-margin"><span>{{post.title}}</span></h2>
+          <h2 class="major no-margin"><span>Blog</span></h2>
         </section>
+      {% for post in posts %}
         <section>
           <header>
             <h3><a href="/blog/{{post.url_slug}}">{{post.title}}</a></h3>
@@ -20,15 +20,20 @@
               <li class="icon fa-comments"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></li>
             </ul>
           </header>
-          {{post.body |safe |slice:":255" }}...
+          {{post.short_description}}
           <p><a href="/blog/{{post.url_slug}}" class="button alt">Read More</a></p>
+          <p>Categories: 
+            {% for category in post.categories.all %}
+              <a href="/blog/categories/{{category.url_slug}}">{{ category.name }}</a>
+            {% endfor %}
+          </p>
         </section>
       {% endfor %}
 
       <div class="pagination">
           <span class="step-links">
               {% if posts.has_previous %}
-                  <a href="?page={{ posts.previous_page_number }}">previous</a>
+              <a href="{{url_start}}/{{ posts.previous_page_number }}">previous</a>
               {% endif %}
 
               <span class="current">
@@ -36,7 +41,7 @@
               </span>
 
               {% if posts.has_next %}
-                  <a href="?page={{ posts.next_page_number }}">next</a>
+              <a href="{{url_start}}/{{ posts.next_page_number }}">next</a>
               {% endif %}
           </span>
       </div>
