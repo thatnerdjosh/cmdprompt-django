@@ -4,7 +4,7 @@ from tinymce.models import HTMLField
 class Product(models.Model):
     name = models.TextField()
     url_slug = models.TextField(unique=True)
-    description = models.TextField()
+    description = HTMLField()
     picture = models.ImageField(upload_to = 'images/product', help_text="Dimensions must be equal, ex: 100x100")
     short_description = models.TextField()
 
@@ -28,7 +28,7 @@ class ProductFeatureGrid(models.Model):
 
 class ProductFeatureGridObject(models.Model):
     name = models.TextField()
-    description = models.TextField()
+    description = HTMLField()
     feature_grid = models.ForeignKey(ProductFeatureGrid, blank=True, null=True)
 
     def __unicode__(self):
