@@ -29,7 +29,10 @@ class BlogPost(models.Model):
     feature_image = models.ImageField(default=None, blank=True, null=True, upload_to = 'images/featured_blog', help_text="Image to be displayed when the blog is featured on the home page")
 
     def __unicode__(self):
-	    return self.title
+	return self.title
+
+    def get_absolute_url(self):
+        return '/blog/' + self.url_slug
 
 class BlogPostCategoryRelationship(models.Model):
     blog = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
