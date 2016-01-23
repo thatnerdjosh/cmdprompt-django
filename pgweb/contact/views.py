@@ -10,6 +10,7 @@ from forms import ContactForm
 
 def contact(request):
         contact_form = ContactForm
+        form = contact_form
         if request.method == "POST":
             form = contact_form(data=request.POST)
 
@@ -40,11 +41,10 @@ def contact(request):
                     headers = {'Reply-To': contact_email }
                 )
                 email.send()
-                return redirect('contact')
         
         contact_sections = ContactSection.objects.all()
         return render_to_response('pages/contact.html', {
             'contact_sections': contact_sections,
-            'form': contact_form
+            'form': form
         }, NavContext(request, 'contact'))
  
