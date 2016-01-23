@@ -1,0 +1,159 @@
+/** Contact Container **/
+#contact-container {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 66px;
+  padding: 20px 15px;
+  background: #fff;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/** Contact Form Elements **/
+#contact-form { box-sizing: border-box; }
+
+#contact-form .txtinput {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666;
+  margin-bottom: 20px;
+  font-size: 1em;
+  padding: 10px 11px 10px 55px;
+  width: 100%;
+  color: #666;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#contact-form .txtinput:focus {
+  color: #666;
+  border-color: #102102;
+  outline: 0 none;
+}
+
+#contact-form input#name {
+  background: #fff url('../../images/user.png') no-repeat;
+  background-position: 1.5% 50%;
+}
+#contact-form input#email {
+  background: url('../../images/email.png') no-repeat;
+  background-position: 1.5% 50%;
+}
+
+#contact-form textarea {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666;
+  margin-bottom: 15px;
+  font-size: 1em;
+  padding: 12px 11px 10px 55px;
+  width: 100%;
+  height: 180px;
+  color: #666;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#contact-form textarea:focus {
+  color: #666;
+  border-color: #102102;
+  outline: 0 none;
+}
+
+#contact-form textarea.txtblock {
+  background: url('../../images/speech.png') no-repeat;
+  background-position: 1.5% 7%;
+}
+
+#contact-form #aligned {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#wrapping { width: 100%; box-sizing: border-box; }
+
+/** custom buttons **/
+
+#buttons { display: block; padding-top: 10px; }
+
+#buttons #submitbtn {
+  display: block;
+  float: left;
+  height: 3em;
+  padding: 0 1em;
+  outline: 0;
+  font-size: 1.3em;
+  white-space: nowrap;
+  word-wrap: normal;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#buttons #submitbtn:hover, #buttons #submitbtn:active {
+  -moz-transition: background-color .2s ease-in-out;
+  -webkit-transition: background-color .2s ease-in-out;
+  -ms-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
+  background: #094074;
+}
+
+/** @group clearfix **/
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
+
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+/** all devices and responsive browser windows **/
+@media screen and (max-width: 800px) {
+  #container {
+    width: 100%;
+  }
+  #contact-form #aligned {
+    width: 100%;
+    float: none;
+    display: block;
+  }
+  #contact-form .txtinput, #contact-form textarea {
+    width: 100%;
+  }
+  #contact-form textarea {
+    background-position: 3% 3%;
+  }
+
+}
+
+/* smaller screen dropoff *******/
+@media only screen and (max-width: 550px) {
+  #contact-form .txtinput, #contact-form textarea {
+    width: 100%;
+  }
+  #contact-form textarea {
+    background-position: 3% 3%;
+  }
+}
+
+/* iPhone portrait *******/
+@media only screen and (max-width: 320px) {
+  #contact-form .txtinput, #contact-form textarea {
+    width: 100%;
+  }
+  #contact-form textarea {
+    background-position: 3% 3%;
+  }
+  #contact-form #aligned {
+    overflow: hidden;
+  }
+}
+

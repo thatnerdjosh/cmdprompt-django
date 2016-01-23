@@ -10,7 +10,11 @@
 		<div id="main" class="container">
 			<div class="row 200%">
 				<div class="12u mobileParallaxFix">
-          {% for contact_section in contact_sections %}
+                    <section class="box features no-margin">
+                        <h2 class="major no-margin"><span> Contact Us! </span></h2>
+                    </section>
+                    {% include 'pages/contact/email_form.html' %}
+            {% for contact_section in contact_sections %}
 					<section class="box features no-margin">
 						<h2 class="major no-margin"><span>{{contact_section.name}}</span></h2>
 					</section>

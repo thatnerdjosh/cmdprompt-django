@@ -1,0 +1,17 @@
+<div class="centered">
+  <section id="contact-container">
+    <form name="contact" id="contact-form" method="post" action="/contact/">
+      {% csrf_token %}
+      <div id="wrapping" class="clearfix">
+        <section id="aligned">
+          {{ form.as_p }}
+        </section>
+      </div>
+
+      <section id="buttons">
+        <input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Send Message">
+        <br style="clear:both;">
+      </section>
+    </form>
+  </section>
+</div>

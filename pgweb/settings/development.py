@@ -102,6 +102,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
     'pgweb.about',
 	'pgweb.blog',
+    'pgweb.contact',
     'pgweb.core',
     'pgweb.mailqueue',
     'pgweb.news',
