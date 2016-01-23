@@ -278,12 +278,11 @@ header > p {
 
 .color1AlternatingBox {
 	  background-color: #e7eae8;
-	  height: 4.1em;
+    border-radius: 6px;
 }
 
 .color2AlternatingBox {
 	  background-color: #fff;
-	  height: 4.1em;
 }
 
 
