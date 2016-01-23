@@ -71,7 +71,7 @@
 	      font-size: 8em;
 	      text-align: center;
 	      display: inline;
-	      color: #000;
+	      color: #666;
     }
 
     .image.left {
@@ -81,22 +81,16 @@
 
     .image.centered {
 	      display: block;
-	      margin: 0 0 2em 0;
     }
 
     .image.centered img {
 	      margin: 0 auto;
-	      width: auto;
+	      width: 7em;
+        height: 7em;
     }
 
 
 /* #PLANETPOSTGRESQL */
-
-    .planetPostgresqlGlobe {
-    	text-align: center;
-    	font-size: 5em;
-    	color: #336791;
-    }
 
     .prof-centered {
       border-radius: 50% !important;
