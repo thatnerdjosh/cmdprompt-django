@@ -896,8 +896,9 @@ table.default thead {
 		#header .logo p {
 				display: block;
 				color: #094074;
+        text-transform: uppercase;
+        font-size: .8em;
         margin-bottom: 0;
-        text-transform: none;
 		}
 
 
