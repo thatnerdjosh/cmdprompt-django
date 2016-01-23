@@ -10,5 +10,5 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', 'pgweb.contact.views.contact'),
+    url(r'^$', 'pgweb.contact.views.contact', name='contact'),
 )
