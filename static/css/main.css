@@ -2045,12 +2045,12 @@ input:focus {
   outline: 0 none;
 }
 
-input #name {
-  background: #fff url('../images/user.png') no-repeat;
+#contact-form input#id_contact_name {
+  background: #fff url('/static/images/user.png') no-repeat;
   background-position: 1.5% 50%;
 }
-input #email {
-  background: url('../images/email.png') no-repeat;
+#contact-form input#id_contact_email {
+  background: url('/static/images/email.png') no-repeat;
   background-position: 1.5% 50%;
 }
 
@@ -2068,17 +2068,14 @@ input #email {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
+  background: url('/static/images/speech.png') no-repeat;
+  background-position: 1.5% 7%;
 }
 
 #contact-form textarea:focus {
   color: #666;
   border-color: #102102;
   outline: 0 none;
-}
-
-#contact-form textarea.txtblock {
-  background: url('../images/speech.png') no-repeat;
-  background-position: 1.5% 7%;
 }
 
 #contact-form #aligned {
