@@ -41,11 +41,11 @@
 }
 
 #contact-form input#name {
-  background: #fff url('../../images/user.png') no-repeat;
+  background: #fff url('../images/user.png') no-repeat;
   background-position: 1.5% 50%;
 }
 #contact-form input#email {
-  background: url('../../images/email.png') no-repeat;
+  background: url('../images/email.png') no-repeat;
   background-position: 1.5% 50%;
 }
 
@@ -72,7 +72,7 @@
 }
 
 #contact-form textarea.txtblock {
-  background: url('../../images/speech.png') no-repeat;
+  background: url('../images/speech.png') no-repeat;
   background-position: 1.5% 7%;
 }
 
@@ -156,4 +156,3 @@ html[xmlns] .clearfix { display: block; }
     overflow: hidden;
   }
 }
-

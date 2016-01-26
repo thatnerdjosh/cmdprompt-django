@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import redirect, render_to_response
 
 from pgweb.util.contexts import NavContext
 
