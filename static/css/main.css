@@ -727,7 +727,15 @@ table.default thead {
 		}
 
     .box.feature.profile {
-      box-shadow: 10px 10px 10px #E7EAE8;
+      box-shadow: 10px 10px 10px 10px #E7EAE8;
+      height: 45em;
+      padding: 1em 1em;
+    }
+
+    @media screen and (max-width: 850px) {
+      .box.feature.profile {
+        height: auto;
+      }
     }
 
 		.box.feature.date {
