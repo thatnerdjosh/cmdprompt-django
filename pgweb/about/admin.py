@@ -3,7 +3,7 @@ from pgweb.util.admin import PgwebAdmin
 from models import TeamMember, AboutContentBlock, Career
 
 class TeamMemberAdmin(admin.ModelAdmin):
-	list_display = ('title',)
+	list_display = ('name',)
 	search_fields = ('title',)
 
 

@@ -20,7 +20,7 @@
               <li class="icon fa-comments"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></li>
             </ul>
           </header>
-          {{post.short_description}}
+          <div class="blog-short-descr">{{post.short_description}}</div>
           <p><a href="/blog/{{post.url_slug}}" class="button alt">Read More</a></p>
       {% if post.categories.all %} 
        <p>Categories: 

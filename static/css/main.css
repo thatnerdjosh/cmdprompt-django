@@ -2014,6 +2014,10 @@ section.module.parallax.blog-1 {
   }
 }
 
+.blog-short-descr {
+  margin-bottom: 2em;
+}
+
 /** Contact Container **/
 #contact-container {
   display: block;
