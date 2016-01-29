@@ -1,7 +1,7 @@
 Development install
 ===================
 
-So, you're ready to contribute to pgweb, and you want to set up a
+So, you're ready to contribute to cmdprompt, and you want to set up a
 local working copy of the website code, so you have something to work
 with. Here's a quick step-by-step on how to do that:
 
@@ -29,7 +29,13 @@ with. Here's a quick step-by-step on how to do that:
 	NO_HTTPS_REDIRECT=True
 	SESSION_COOKIE_SECURE=False
 	SESSION_COOKIE_DOMAIN=None
-        DATABASE_NAME="pgweb"
+        DATABASE_NAME="cmdprompt"
+
+#. In this same file, you can add the following line to configure your 
+   console backend to send email for testing purposes::
+
+	EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 #. In the pgweb directory run the following command to create all
    tables and indexes, as well as create a superuser for your local
    installation::
@@ -51,6 +57,7 @@ with. Here's a quick step-by-step on how to do that:
 
    ./manage.py runserver
 #. Now load up the website by going to http://localhost:8000
+
 
 Future improvements
 -------------------
