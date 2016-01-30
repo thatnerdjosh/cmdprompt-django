@@ -23,6 +23,7 @@ from pgweb.util.sitestruct import get_all_pages_struct
 
 # models needed for the pieces on the frontpage
 from pgweb.blog.models import BlogPost
+from pgweb.quote.models import Quote
 
 from models import Version, ImportedRSSItem
 
