@@ -1,11 +1,20 @@
 {%extends "base/page.html"%}
 {%block title%}Quotes{%endblock%}
-{%block contents%}
-<h1>Quotes</h1>
-<dl>
-{% for obj in quotes %}
- <dt>{{obj.quote|safe}}</dt>
- <dd class="quote_source">{{obj.who}}, <a href="{{obj.link}}">{{obj.org}}</a></dd>
-{% endfor %}
-</dl>
+{%block layoutblock%}
+<section class="module parallax parallax-2">
+  <div class="container"></div>
+</section>
+
+<!-- Main -->
+  <div id="main-wrapper">
+      <div id="main" class="container">
+          <h2 class="major no-margin"><span>Quotes</span></h2>
+            <dl>
+            {% for obj in quotes %}
+            <dt>{{obj.quote|safe}}</dt>
+            <dd class="quote_source">{{obj.who}}, <a href="{{obj.link}}">{{obj.org}}</a></dd>
+            {% endfor %}
+            </dl>
+      </div>
+  </div>
 {%endblock%}
