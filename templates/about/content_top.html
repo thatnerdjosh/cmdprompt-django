@@ -1,0 +1,12 @@
+{% for block in content_top %}
+  {% if block.display %}
+  <div class="row 200%">
+    <div class="12u mobileParallaxFix">
+      <h2 class="major no-margin"><span>{{block.title}}</span></h2>
+      <section>
+          {{block.content |safe}}
+      </section>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}

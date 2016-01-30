@@ -1,0 +1,52 @@
+{%extends "base/base.html"%}
+{%block title%}{{blog_post.title}}{%endblock%}
+{%block layoutblock%}
+<section class="module parallax parallax-6">
+  <div class="container"></div>
+</section>
+
+<!-- Main -->
+  <div id="main-wrapper">
+    <div id="main" class="container">
+        <section class="box features no-margin">
+          <h2 class="major no-margin"><span>Blog</span></h2>
+        </section>
+      {% for post in posts %}
+        <section>
+          <header>
+            <h3><a href="/blog/{{post.url_slug}}">{{post.title}}</a></h3>
+            <ul class="meta">
+              <li class="icon fa-clock-o">{{post.date_created}}</li>
+              <li class="icon fa-comments"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></li>
+            </ul>
+          </header>
+          <div class="blog-short-descr">{{post.short_description}}</div>
+          <p><a href="/blog/{{post.url_slug}}" class="button alt">Read More</a></p>
+      {% if post.categories.all %} 
+       <p>Categories: 
+            {% for category in post.categories.all %}
+              <a href="/blog/categories/{{category.url_slug}}">{{ category.name }}</a>
+            {% endfor %}
+          </p>
+      {% endif %}   
+      </section>
+      {% endfor %}
+
+      <div class="pagination">
+          <span class="step-links">
+              {% if posts.has_previous %}
+              <a href="{{url_start}}/{{ posts.previous_page_number }}">previous</a>
+              {% endif %}
+
+              <span class="current">
+                  Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+              </span>
+
+              {% if posts.has_next %}
+              <a href="{{url_start}}/{{ posts.next_page_number }}">next</a>
+              {% endif %}
+          </span>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

@@ -1,0 +1,25 @@
+<div class="centered">
+  <section id="contact-container">
+    <form name="contact" id="contact-form" method="post" action="/contact/">
+      {% csrf_token %}
+      <div id="wrapping" class="clearfix">
+        <section id="aligned">
+          {% for field in form %}
+          <div class="fieldWrapper">
+              {{ field }}
+              {{ field.errors }}
+              {% if field.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+          </div>
+          {% endfor %}
+        </section>
+      </div>
+
+      <section id="buttons">
+        <input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Send Message">
+        <br style="clear:both;">
+      </section>
+    </form>
+  </section>
+</div>

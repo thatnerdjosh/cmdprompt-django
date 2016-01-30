@@ -1,0 +1,31 @@
+{%extends "base/base.html"%}
+{%block title%}Services{%endblock%}
+{%block layoutblock%}
+	<section class="module parallax parallax-5">
+	  <div class="container"></div>
+	</section>
+
+  <!-- Main -->
+	<div id="main-wrapper">
+		<div id="main" class="container">
+
+				<div class="row 200%">
+					<div class="12u mobileParallaxFix">
+						<section class="box features no-margin">
+							<h2 class="major no-margin"><span>Our Services</span></h2>
+						</section>
+						<section>
+							<p>
+								As the oldest company providing PostgreSQL centered full stack consulting and support we are in a unique
+								position to be able to provide best in class services for your platform.
+							</p>
+						</section>
+					</div>
+				</div>
+
+				{% include "pages/services/package.html" %}
+				{% include "pages/services/professional.html" %}
+				{% include "pages/services/cloud.html" %}
+		</div>
+	</div>
+{% endblock %}

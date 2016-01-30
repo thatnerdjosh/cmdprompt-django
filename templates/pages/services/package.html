@@ -1,0 +1,34 @@
+<!-- Row 1 Features -->
+<div class="row 200%">
+  <div class="12u">
+    <div class="12u(mobile)">
+      <!-- Features -->
+        <section class="box features">
+          <div>
+            <h2 class="major"><span>Packaged Services</span></h2>
+            <img class="headerImage" src="/static/images/package.png"></img>
+          </div>
+          <div>
+            {% for service in packageServices %}
+              {% if forloop.counter0|divisibleby:3 %}
+              <div class="row">
+              {% endif %}
+                <div class="4u 12u(mobile)">
+                <!-- Feature -->
+                  <section class="box feature">
+                    <h3><a href="#">{{service.name}}</a></h3>
+                    <p>
+                      {{service.description}}<br />
+                      View the {{service.name}} page <strong><a href="{{service.link}}">here.</a></strong>
+                    </p>
+                  </section>
+                </div>
+              {% if forloop.counter|divisibleby:3 %}
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+      </section>
+    </div>
+  </div>
+</div>

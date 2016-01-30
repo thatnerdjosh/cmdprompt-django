@@ -1,10 +1,4 @@
 # models needed to generate unapproved list
-from pgweb.news.models import NewsArticle
-from pgweb.events.models import Event
-from pgweb.core.models import Organisation
-from pgweb.docs.models import DocComment
-from pgweb.downloads.models import Product
-from pgweb.profserv.models import ProfessionalService
 from pgweb.quotes.models import Quote
 
 # Pending moderation requests (including URLs for the admin interface))
@@ -21,7 +15,6 @@ def get_all_pending_moderations():
 		_get_unapproved_list(Event),
 		_get_unapproved_list(Organisation),
 		_get_unapproved_list(DocComment),
-		_get_unapproved_list(Product),
 		_get_unapproved_list(ProfessionalService),
 		_get_unapproved_list(Quote),
 		]

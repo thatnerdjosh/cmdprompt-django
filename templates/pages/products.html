@@ -1,0 +1,28 @@
+{%extends "base/base.html"%}
+{%block title%}Products{%endblock%}
+{%block layoutblock%}
+<section class="module parallax parallax-4">
+  <div class="container"></div>
+</section>
+
+<!-- Main -->
+	<div id="main-wrapper">
+		<div id="main" class="container">
+
+				<div class="row 200%">
+					<div class="12u mobileParallaxFix">
+						<section class="box features no-margin">
+							<h2 class="major no-margin"><span>Our Product Portfolio</span></h2>
+						</section>
+						<section>
+							<p>
+								The PostgreSQL Company: Command Prompt, Inc., has a full product portfolio. Each product is derived,
+								or is a part of the World's Most Advanced Open Source Database, PostgreSQL.
+						</section>
+					</div>
+				</div>
+
+        {% include 'pages/products/listing.html' %}
+		</div>
+  </div>
+{% endblock %}

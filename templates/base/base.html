@@ -2,7 +2,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
  <head>
-  <title>Command Prompt Inc: {%block title%}{%endblock%}</title>
+  <title>PostgreSQL Company, Since 1997, PostgreSQL (Postgres) Support, PostgreSQL (Postgres) Consulting and PostgreSQL (Postgres) Development - {%block title%}{%endblock%}</title>
   <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 {%block meta%}{%endblock%} {# used for custom meta tags such as description which we don't want for every page #}
@@ -18,55 +18,30 @@
          <div class="logo container">
            <div>
              <h1><a href="index.html" id="logo">Command Prompt, Inc.</a></h1>
-             <p>The PostgreSQL Company.</p>
            </div>
+           <p>PostgreSQL Centered full stack support, consulting & development.
+</p>
          </div>
        </header>
 
      <!-- Nav -->
        <nav id="nav">
          <ul>
-           <li><span class="header"><img src="./images/cmd.jpg" alt="" /></span></li>
-           <li class="current"><a href="./index.html">Home</a></li>
-           <li>
-             <a href="./about/about.html">About</a>
-             <ul>
-               <li><a href="./about/careers.html">Careers</a></li>
-               <li><a href="./about/partners.html">Partners</a></li>
-             </ul>
-           </li>
-           <li>
-             <a href="./products/products.html">Products</a>
-             <ul>
-               <li><a href="./products/auditandtune.html">Audit and Tune</a></li>
-               <li><a href="./products/highavailabilityclusters.html">High Availability Clusters</a></li>
-               <li><a href="./products/hotcoldstandby.html">Hot Standby / DRBD</a></li>
-               <li><a href="./products/performanceaudit.html">Performance Audit</a></li>
-               <li><a href="./products/postgresqlcore.html">PostgreSQL Core</a></li>
-               <li><a href="./products/warmstandby.html">Warm Standby</a></li>
-             </ul>
-           </li>
-           <li>
-             <a href="./services/services.html">Services</a>
-             <ul>
-               <li><a href="./services/dedicatedhosting.html">Dedicated Hosting</a></li>
-               <li><a href="./services/highavailability.html">High Availability</a></li>
-               <li><a href="./services/onsite.html">On-Site</a></li>
-               <li><a href="./services/performancetuning.html">Performance Tuning</a></li>
-               <li><a href="./services/remotehands.html">Remote Hands</a></li>
-               <li><a href="./services/training.html">Training</a></li>
-             </ul>
-           </li>
-           <li>
-             <a href="./support/support.html">Support</a>
-             <ul>
-               <li><a href="./support/incidentpacks.html">Incident Packs</a></li>
-               <li><a href="./support/options.html">Support Options</a></li>
-               <li><a href="./support/terms.html">Terms of Service</a></li>
-             </ul>
-           </li>
-           <li><a href="./blog/blog.html">Blog</a></li>
-           <li><a href="./contact/contact.html">Contact</a></li>
+           <li><span class="header"><img src="/static/images/cmd.jpg" alt="" /></span></li>
+            {%for m in navmenu%}
+            {%if not forloop.first %}</li>{%endif%}
+            <li {%if navsection == m.navcontext%}class="current"{%endif%}><a href="{{m.link}}">{{m.title}}</a>
+             {%if m.submenu %}
+              <ul>
+              {%for sm in m.submenu %}
+               <li><a href="{{sm.link}}">{{sm.title}}</a></li>
+              {%endfor%}
+              </ul>
+             {%endif%}
+             {%if forloop.last%}
+            </li>
+             {%endif%}
+            {%endfor%}
          </ul>
        </nav>
        {%block layoutblock%}{%endblock%}
@@ -103,13 +78,13 @@
  			</div>
 
  		<!-- Scripts -->
- 			<script src="/media/js/jquery.min.js"></script>
- 			<script src="/media/js/jquery.dropotron.min.js"></script>
- 			<script src="/media/js/skel.min.js"></script>
- 			<script src="/media/js/skel-viewport.min.js"></script>
- 			<script src="/media/js/util.js"></script>
- 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
- 			<script src="/media/js/main.js"></script>
+ 			<script src="/static/js/jquery.min.js"></script>
+ 			<script src="/static/js/jquery.dropotron.min.js"></script>
+ 			<script src="/static/js/skel.min.js"></script>
+ 			<script src="/static/js/skel-viewport.min.js"></script>
+ 			<script src="/static/js/util.js"></script>
+ 			<!--[if lte IE 8]><script src="/static/js/ie/respond.min.js"></script><![endif]-->
+ 			<script src="/static/js/main.js"></script>
 
  	</body>
  </html>

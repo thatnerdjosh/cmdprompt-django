@@ -22,13 +22,10 @@ from pgweb.util.misc import get_client_ip, is_behind_cache, varnish_purge
 from pgweb.util.sitestruct import get_all_pages_struct
 
 # models needed for the pieces on the frontpage
-from pgweb.news.models import NewsArticle
-from pgweb.events.models import Event
+from pgweb.blog.models import BlogPost
 from pgweb.quotes.models import Quote
-from models import Version, ImportedRSSItem
 
-# models needed for the pieces on the community page
-from pgweb.survey.models import Survey
+from models import Version, ImportedRSSItem
 
 # models and forms needed for core objects
 from models import Organisation
@@ -38,32 +35,24 @@ from django.template.context import RequestContext
 # Front page view
 @cache(minutes=10)
 def home(request):
-	news = NewsArticle.objects.filter(approved=True)[:7]
-	events = Event.objects.select_related('country').filter(approved=True, training=False, enddate__gte=date.today).order_by('enddate', 'startdate')[:5]
 	try:
-		quote = Quote.objects.filter(approved=True).order_by('?')[0]
+		quote = Quote.objects.filter(approved=True, feature=True).order_by('?')[0]
 	except:
 		# if there is no quote available, just ignore error
 		quote = None
-	versions = Version.objects.filter(supported=True)
-	planet = ImportedRSSItem.objects.filter(feed__internalname="planet").order_by("-posttime")[:7]
 
-	traininginfo = Event.objects.filter(approved=True, training=True).extra(where=("startdate <= (CURRENT_DATE + '6 Months'::interval) AND enddate >= CURRENT_DATE",)).aggregate(Count('id'), Count('country', distinct=True))
-	# can't figure out how to make django do this
-	curs = connection.cursor()
-	curs.execute("SELECT * FROM (SELECT DISTINCT(core_organisation.name) FROM events_event INNER JOIN core_organisation ON org_id=core_organisation.id WHERE startdate <= (CURRENT_DATE + '6 Months'::interval) AND enddate >= CURRENT_DATE AND events_event.approved AND training AND org_id IS NOT NULL) x ORDER BY random() LIMIT 3")
-	trainingcompanies = [r[0] for r in curs.fetchall()]
+	try:
+		featured_post = BlogPost.objects.filter(active=True, featured=True)[0]
+	except:
+		featured_post = None
 
+	latest_posts = BlogPost.objects.filter(active=True, featured=False, list_on_side=True).order_by('-id')[:10][::-1]
 	return render_to_response('index.html', {
-		'title': 'The world\'s most advanced open source database',
-		'news': news,
-		'events': events,
-		'traininginfo': traininginfo,
-		'trainingcompanies': trainingcompanies,
-		'quote': quote,
-		'versions': versions,
-		'planet': planet,
-	}, RequestContext(request))
+		'title': 'Home',
+		'testimonial': quote,
+		'featured_post': featured_post,
+		'latest_posts': latest_posts
+	}, NavContext(request, 'home'))
 
 # Community main page (contains surveys and potentially more)
 def community(request):
@@ -162,19 +151,19 @@ def sitemap(request):
 # dynamically, since the output will be cached (for all non-SSL users, which
 # is the vast majority) anyway.
 _dynamic_cssmap = {
-	'base': ['media/css/main.css',
-			 'media/css/font-awesome.min.css',
-			 'media/css/jcarousel.css',
-			 'media/css/images.css',
-			 'media/css/grid.css',
-			 'media/css/forms.css',
-			 'media/css/copyright.css',
-			 'media/css/containers.css',
-			 'media/css/button.css'],
-	'docs': ['media/css/global.css',
-			 'media/css/table.css',
-			 'media/css/text.css',
-		     'media/css/docs.css'],
+	'base': ['static/css/main.css',
+			 'static/css/font-awesome.min.css',
+			 'static/css/jcarousel.css',
+			 'static/css/images.css',
+			 'static/css/grid.css',
+			 'static/css/forms.css',
+			 'static/css/copyright.css',
+			 'static/css/containers.css',
+			 'static/css/button.css'],
+	'docs': ['static/css/global.css',
+			 'static/css/table.css',
+			 'static/css/text.css',
+		     'static/css/docs.css'],
 	}
 @ssl_optional
 @cache(hours=6)

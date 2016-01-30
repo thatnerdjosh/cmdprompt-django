@@ -1,0 +1,26 @@
+{%extends "base/base.html" %}
+{%block layoutblock%}
+<section class="module parallax parallax-2">
+  <div class="container"></div>
+</section>
+
+      <!-- Main -->
+        <div id="main-wrapper">
+          <div id="main" class="container">
+
+              <div class="row 200%">
+                <div class="12u">
+                  <section class="box features no-margin">
+                    <h2 class="major no-margin"><span>Careers</span></h2>
+                  </section>
+                  {% for career in careers %}
+                    <section>
+                      <p><strong>{{ career.name }}:</strong></br></p>
+                      <p>{{ career.description |safe }}</p>
+                    </section>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}
