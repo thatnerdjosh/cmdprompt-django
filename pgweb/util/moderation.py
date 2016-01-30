@@ -1,9 +1,4 @@
 # models needed to generate unapproved list
-from pgweb.news.models import NewsArticle
-from pgweb.events.models import Event
-from pgweb.core.models import Organisation
-from pgweb.docs.models import DocComment
-from pgweb.profserv.models import ProfessionalService
 from pgweb.quotes.models import Quote
 
 # Pending moderation requests (including URLs for the admin interface))

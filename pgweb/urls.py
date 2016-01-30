@@ -12,18 +12,13 @@ from django.contrib import admin
 admin.autodiscover()
 
 
-# dict with all the RSS feeds we can serve
-from core.feeds import VersionFeed
-from news.feeds import NewsFeed
-from events.feeds import EventFeed
-from pwn.feeds import PwnFeed
-
 urlpatterns = patterns('',
     (r'^$', 'pgweb.core.views.home'),
     (r'^dyncss/(?P<css>base|docs).css$', 'pgweb.core.views.dynamic_css'),
 
 
 	(r'^robots.txt$', 'pgweb.core.views.robots'),
+    (r'^quotes/$', 'pgweb.quotes.views.allquotes'),
 
     ###
     # RSS feeds
