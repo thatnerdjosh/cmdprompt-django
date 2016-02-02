@@ -36,8 +36,8 @@ def contact(request):
                 email = EmailMessage(
                     "New contact form submission",
                     content,
-                    "Your website" +'',
-                    ['nerdsville@nerdsville.net'],
+                    contact_email,
+                    ['sales@commandprompt.com'],
                     headers = {'Reply-To': contact_email }
                 )
                 email.send()
