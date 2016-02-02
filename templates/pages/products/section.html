@@ -2,11 +2,9 @@
 <!-- BEGIN ROW 1 -->
 <div class="row 200%">
   <div class="12u">
-    <div class="12u(mobile)">
       <!-- Features -->
         <section class="box features">
           <h2 class="major"><span>{{feature_grid_listing.0.feature_grid.section_name}}</span></h2>
-          <div>
           {% for feature in feature_grid_listing %}
             {% if forloop.counter0|divisibleby:3 %}
             <div class="row">
@@ -17,7 +15,7 @@
                 <section class="box feature">
                   <h3>{{feature.name}}</h3>
                   <p>
-                    {{feature.description}}
+                    {{feature.description|safe}}
                   </p>
                 </section>
               </div>
@@ -25,9 +23,8 @@
             </div>
             {% endif %}
           {% endfor %}
-        </div>
+        
       </section>
-    </div>
   </div>
 </div>
 {% endfor %}
