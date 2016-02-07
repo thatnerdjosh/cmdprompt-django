@@ -24,7 +24,7 @@ class ProductFeatureGrid(models.Model):
     product = models.ForeignKey(Product, blank=True, null=True)
 
     def __unicode__(self):
-        return self.section_name + " | " + self.product
+        return self.section_name + " | " + self.product.name
 
 class ProductFeatureGridObject(models.Model):
     name = models.TextField()
