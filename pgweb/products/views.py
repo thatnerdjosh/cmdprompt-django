@@ -14,6 +14,7 @@ def products(request):
 
 def view_product(request, product):
     product = Product.objects.filter(url_slug=product)[0]
+    sections = ProductSection.objects.filter(product=product)
     feature_grids = ProductFeatureGrid.objects.filter(product=product)
     feature_grid_listings = []
     for feature_grid in feature_grids:
@@ -24,6 +25,7 @@ def view_product(request, product):
         raise Http404
 
     return render_to_response('pages/products/product.html', {
-	    'product': product,
+	'product': product,
+        'sections': sections,
         'feature_grid_listings': feature_grid_listings
     }, NavContext(request, 'products'))

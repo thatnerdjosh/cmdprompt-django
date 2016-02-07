@@ -2062,9 +2062,14 @@ input:focus {
   background: #fff url('/static/images/user.png') no-repeat;
   background-position: 1.5% 50%;
 }
+
 #contact-form input#id_contact_email {
   background: url('/static/images/email.png') no-repeat;
   background-position: 1.5% 50%;
+}
+
+#contact-form .errorlist {
+  margin-top: -3em;
 }
 
 #contact-form textarea {
