@@ -1,0 +1,37 @@
+<div class="sidebar">
+      <!-- Sidebar -->
+      <section>
+        <h2 class="major"><span>Recent Blogs</span></h2>
+        <ul class="divided">
+          {% for post in blogposts %}
+            <li>
+              <article class="box post-summary">
+                <h3><a href="{{post.url_slug}}">{{post.title}}</a></h3>
+                <ul class="meta">
+                  <li class="icon fa-clock-o">{{post.date_created}}</li>
+                </ul>
+              </article>
+            </li>
+          {% endfor %}
+        </ul>
+        <a href="#" class="button alt">Browse Archives</a>
+      </section>
+        <!-- Products -->
+      <section>
+        <h2 class="major"><span>Our Products</span></h2>
+        <ul>
+          {% for product in products %}
+            <li><h3><a href="{{product.url_slug}}">{{product.name}}</a></h3></li>
+          {% endfor %}
+        </ul>
+      </section>
+      <!-- Services -->
+      <section>
+        <h2 class="major"><span>Our Services</span></h2>
+        <ul>
+          {% for service in services %}
+            <li><h3><a href="{{service.url_slug}}">{{service.name}}</a></h3></li>
+          {% endfor %}
+        </ul>
+      </section>
+</div>
