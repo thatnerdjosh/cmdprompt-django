@@ -6,6 +6,7 @@ from django.conf import settings
 from pgweb.services.models import Service
 from pgweb.products.models import Product
 from pgweb.support.models import SupportPage
+from pgweb.blog.models import BlogPost
 
 class NavContext(RequestContext):
 	def __init__(self, request, section):
@@ -41,6 +42,12 @@ class NavContext(RequestContext):
 			{'title': 'Blog', 'navcontext': 'blog', 'link': '/blog/'},
 			{'title': 'Contact', 'navcontext': 'contact', 'link': '/contact/'}
 		]
+
+                posts = BlogPost.objects.all()
+                
+                self.update({'products': products})
+                self.update({'services': services})
+                self.update({'blogposts': posts})
 		self.update({'navmenu': sitenav})
 		self.update({'navsection': section})
 
