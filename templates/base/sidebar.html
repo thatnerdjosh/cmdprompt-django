@@ -6,7 +6,7 @@
           {% for post in blogposts %}
             <li>
               <article class="box post-summary">
-                <h3><a href="{{post.url_slug}}">{{post.title}}</a></h3>
+                <h3><a href="/blog/{{post.url_slug}}">{{post.title}}</a></h3>
                 <ul class="meta">
                   <li class="icon fa-clock-o">{{post.date_created}}</li>
                 </ul>
@@ -21,7 +21,7 @@
         <h2 class="major"><span>Our Products</span></h2>
         <ul>
           {% for product in products %}
-            <li><h3><a href="{{product.url_slug}}">{{product.name}}</a></h3></li>
+            <li><h3><a href="/products/{{product.url_slug}}">{{product.name}}</a></h3></li>
           {% endfor %}
         </ul>
       </section>
@@ -30,7 +30,7 @@
         <h2 class="major"><span>Our Services</span></h2>
         <ul>
           {% for service in services %}
-            <li><h3><a href="{{service.url_slug}}">{{service.name}}</a></h3></li>
+            <li><h3><a href="/services/{{service.url_slug}}">{{service.name}}</a></h3></li>
           {% endfor %}
         </ul>
       </section>
