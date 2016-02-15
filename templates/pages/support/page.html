@@ -1,35 +1,22 @@
-{%extends "base/base.html"%}
+{%extends "base/basealt.html"%}
 {%block title%}Support{%endblock%}
 {%block layoutblock%}
-	<section class="module parallax parallax-7">
-	  <div class="container"></div>
-	</section>
-
-  <!-- Main -->
-	<div id="main-wrapper">
-		<div id="main" class="container">
-				<div class="row 200%">
-					<div class="12u mobileParallaxFix">
-            <section class="box features no-margin">
-              <h2 class="major no-margin"><span>{{support_page.name}}</span></h2>
-            </section>
-            <section>
-              <p>
-                {{support_page.description|safe}}
-              </p>
-            </section>
-            {% for section in support_sections %}
-              <section class="box features no-margin">
-                <h2 class="major no-margin"><span>{{section.name}}</span></h2>
-              </section>
-              <section>
-                <p>
-                  {{section.description|safe}}
-                </p>
-              </section>
-            {% endfor %}
-					</div>
-				</div>
-		</div>
-	</div>
+    <section class="box features no-margin">
+        <h2 class="major no-margin"><span>{{support_page.name}}</span></h2>
+    </section>
+    <section>
+        <p>
+        {{support_page.description|safe}}
+        </p>
+    </section>
+    {% for section in support_sections %}
+        <section class="box features no-margin">
+        <h2 class="major no-margin"><span>{{section.name}}</span></h2>
+        </section>
+        <section>
+        <p>
+            {{section.description|safe}}
+        </p>
+        </section>
+    {% endfor %}
 {% endblock %}
