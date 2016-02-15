@@ -1,19 +1,10 @@
-{%extends "base/base.html"%}
+{%extends "base/basealt.html"%}
 {%block title%}{{blog_post.title}}{%endblock%}
 {%block layoutblock%}
-<section class="module parallax parallax-6">
-  <div class="container"></div>
-</section>
-
-<!-- Main -->
-  <div id="main-wrapper">
-    <div id="main" class="container">
       <section class="box features no-margin">
 				<h2 class="major no-margin"><span>{{blog_post.title}}</span></h2>
 			</section>
       <section>
         {{blog_post.body |safe}}
       </section>
-    </div>
-  </div>
 {%endblock%}

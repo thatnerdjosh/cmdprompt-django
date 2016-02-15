@@ -1,32 +1,24 @@
-<!-- Row 1 Features -->
-<div class="row 200%">
-  <div class="12u">
-    <div class="12u(mobile)">
-      <!-- Features -->
-        <section class="box features">
-          <h2 class="major"><span>Product Summaries</span></h2>
-          <div>
-            {% for product in products %}
-              {% if forloop.counter0|divisibleby:3 %}
-              <div class="row">
-              {% endif %}
-                <div class="4u 12u(mobile) product">
-                <!-- Feature -->
-                  <section class="box feature">
-                    <img class="productImage" src="{{MEDIA_URL}}{{product.picture}}" />
-                    <h3><a href="#">{{product.name}}</a></h3>
-                    <p>
-                      {{product.short_description}}<br />
-                      View the {{product.name}} page <strong><a href="{{product.url_slug}}">here.</a></strong>
-                    </p>
-                  </section>
-                </div>
-              {% if forloop.counter|divisibleby:3 %}
-              </div>
-              {% endif %}
-            {% endfor %}
+  <section class="box features">
+    <h2 class="major"><span>Product Summaries</span></h2>
+    <div>
+      {% for product in products %}
+        {% if forloop.counter0|divisibleby:3 %}
+        <div class="row">
+        {% endif %}
+          <div class="4u 12u(mobile) product">
+          <!-- Feature -->
+            <section class="box feature">
+              <img class="productImage" src="{{MEDIA_URL}}{{product.picture}}" />
+              <h3><a href="#">{{product.name}}</a></h3>
+              <p>
+                {{product.short_description}}<br />
+                View the {{product.name}} page <strong><a href="{{product.url_slug}}">here.</a></strong>
+              </p>
+            </section>
           </div>
-      </section>
+        {% if forloop.counter|divisibleby:3 %}
+        </div>
+        {% endif %}
+      {% endfor %}
     </div>
-  </div>
-</div>
+</section>
