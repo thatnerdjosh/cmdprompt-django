@@ -1,5 +1,6 @@
 <div class="sidebar">
       <!-- Sidebar -->
+      {% if navsection == "contact" or navsection == "blog" or navsection == "about" %}
       <section>
         <h2 class="major"><span>Recent Blogs</span></h2>
         <ul class="divided">
@@ -16,6 +17,7 @@
         </ul>
         <a href="#" class="button alt">Browse Archives</a>
       </section>
+      {% endif %}
         <!-- Products -->
       <section>
         <h2 class="major"><span>Our Products</span></h2>
