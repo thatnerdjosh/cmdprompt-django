@@ -728,6 +728,7 @@ table.default thead {
 
     .box.feature.profile {
       box-shadow: 10px 10px 10px 10px #E7EAE8;
+      height: 45em;
       padding: 1em 1em;
     }
 
@@ -1222,8 +1223,9 @@ table.default thead {
 	  }
 
 	  h2.major {
-				text-align: left;
-		    margin: 0.775em 0 0.75em 0;
+        color: #094074;
+				text-align: center;
+		    margin: 3em 0 2em 0;
 	  }
 
 	  h2.major span {
@@ -1233,6 +1235,7 @@ table.default thead {
 
 	  h3 {
 				font-size: 1.25em;
+        text-align: center;
 	  }
 
 	  h3.major {
@@ -1257,6 +1260,10 @@ table.default thead {
 	  section.box.feature-grid {
 				margin-bottom: 1em;
 	  }
+
+    section.box.feature p, article.box.feature p{
+        text-align: left;
+    }
 
 	  header p {
 				font-size: 1.5em;
@@ -1380,8 +1387,8 @@ table.default thead {
 	  .sidebar {
 				border-top: solid 2px #e7eae8;
 				border-bottom: solid 2px #e7eae8;
-        padding: 5em 0 5em 0;
-				margin-top: 5em;
+        padding: 0 0 5em 0;
+        text-align: center;
 	  }
 
 	  .sidebar > section {
@@ -1771,6 +1778,7 @@ h3.major.no-margin {
 }
 
 .product {
+  height: 420px;
   margin-bottom: 20px;
 }
 
@@ -2060,14 +2068,9 @@ input:focus {
   background: #fff url('/static/images/user.png') no-repeat;
   background-position: 1.5% 50%;
 }
-
 #contact-form input#id_contact_email {
   background: url('/static/images/email.png') no-repeat;
   background-position: 1.5% 50%;
-}
-
-#contact-form .errorlist {
-  margin-top: -3em;
 }
 
 #contact-form textarea {
