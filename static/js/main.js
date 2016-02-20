@@ -90,34 +90,36 @@
 })(jQuery);
 
 (function($){
-	function equalizeHeights(selector) {
+	function equalizeHeights(selector, selectorChange) {
 		var heights = new Array();
 
 		// Loop to get all element heights
 		$(selector).each(function() {
+			    childElements = $(this).find('.profile')
+			    childElements.each(function() {
+					// Need to let sizes be whatever they want so no overflow on resize
+					$(this).css('min-height', '0');
+					$(this).css('max-height', 'none');
+					$(this).css('height', 'auto');
 
-			// Need to let sizes be whatever they want so no overflow on resize
-			$(this).css('min-height', '0');
-			$(this).css('max-height', 'none');
-			$(this).css('height', 'auto');
+					// Then add size (no units) to array
+					heights.push($(this).height());
+				});
+				// Find max height of all elements
+				var max = Math.max.apply( Math, heights );
 
-			// Then add size (no units) to array
-	 		heights.push($(this).height());
+				// Set all heights to max height
+				childElements.each(function() {
+					$(this).css('height', max + 'px');
+				});			
 		});
-
-		// Find max height of all elements
-		var max = Math.max.apply( Math, heights );
-
-		// Set all heights to max height
-		$(selector).each(function() {
-			$(this).css('height', max + 'px');
-		});
+	
 	}
-	if($('.box.feature.profile').length) {
+	if($('div.row:has(section.profile)').length) {
 
 	    $(window).load(function() {
 		// Fix heights on page load
-		equalizeHeights(".box.feature.profile");
+		equalizeHeights(".box.features .row", "section.profile");
 
 		// Fix heights on window resize
 		$(window).resize(function() {
@@ -125,7 +127,7 @@
 			// Needs to be a timeout function so it doesn't fire every ms of resize - rename MYSELECTOR
       // class type that needs resizing
 			setTimeout(function() {
-	      		equalizeHeights(".box.feature.profile");
+	      		equalizeHeights(".box.features .row", "section.profile");
 			}, 120);
 		});
 	    });
