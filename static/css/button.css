@@ -148,7 +148,10 @@ button.alt:active,
     input[type="reset"].alt,
     button.alt,
     .button.alt {
-
+      -moz-transition-property: none;
+      -webkit-transition-property: none;
+      -o-transition-property: none;
+      transition-property: none;
     }
 
 }
