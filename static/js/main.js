@@ -91,10 +91,10 @@
 
 (function($){
 	function equalizeHeights(selector, selectorChange) {
-		var heights = new Array();
 
 		// Loop to get all element heights
 		$(selector).each(function() {
+				var heights = new Array();
 			    childElements = $(this).find('.profile')
 			    childElements.each(function() {
 					// Need to let sizes be whatever they want so no overflow on resize
@@ -106,7 +106,7 @@
 					heights.push($(this).height());
 				});
 				// Find max height of all elements
-				var max = Math.max.apply( Math, heights );
+				var max = Math.max.apply( Math, heights ) + 20;
 
 				// Set all heights to max height
 				childElements.each(function() {
