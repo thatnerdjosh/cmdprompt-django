@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+ <head>
+  <title>PostgreSQL Company, Since 1997, PostgreSQL (Postgres) Support, PostgreSQL (Postgres) Consulting and PostgreSQL (Postgres) Development - {%block title%}{%endblock%}</title>
+  <meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+{%block meta%}{%endblock%} {# used for custom meta tags such as description which we don't want for every page #}
+  <style type="text/css" media="screen" title="Normal Text">@import url("/dyncss/base.css?{{gitrev}}");</style>
+  <link rel="shortcut icon" href="/favicon.ico" />
+{%block extrahead%}{%endblock%}
+ </head>
+ <body>
+   <div id="page-wrapper">
+
+     <!-- Header -->
+       <header id="header">
+         <div class="logo container">
+           <div>
+             <h1><a href="index.html" id="logo">Command Prompt, Inc.</a></h1>
+           </div>
+           <p>PostgreSQL Centered full stack support, consulting & development.
+</p>
+         </div>
+       </header>
+
+     <!-- Nav -->
+       <nav id="nav">
+         <ul>
+          <li><span class="header"><a href="/" style="background:none"><img src="/static/images/cmd.jpg" alt="CommandPrompt Logo" /></a></span></li>      
+          {%for m in navmenu%}
+            {%if not forloop.first %}</li>{%endif%}
+            <li {%if navsection == m.navcontext%}class="current"{%endif%}><a href="{{m.link}}">{{m.title}}</a>
+             {%if m.submenu %}
+              <ul>
+              {%for sm in m.submenu %}
+               <li><a href="{{sm.link}}">{{sm.title}}</a></li>
+              {%endfor%}
+              </ul>
+             {%endif%}
+             {%if forloop.last%}
+            </li>
+             {%endif%}
+            {%endfor%}
+         </ul>
+       </nav>
+       <!-- Main -->
+       <div id="main-wrapper">
+         <div id="main" class="container">
+            <div class="row">
+              <div class="mobileParallaxFix 9u 12u(mobile) important(mobile)">
+                <div class="content content-left">       
+                    {%block layoutblock%}{%endblock%}
+                </div>
+              </div>
+              <div class="3u 12u(mobile)">
+                {% include 'base/sidebar.html' %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer -->
+        <footer id="footer" class="container">
+        <div class="row 200%">
+            <div class="12u">
+                <!-- Contact -->
+                    <div class="row">
+                    <div class="12u">
+                        <section>
+                            <h2 class="major"><span>Connect With Us</span></h2>
+                            <ul class="contact">
+                                <li><a class="icon fa-facebook" href="http://www.facebook.com/commandprompt"><span class="label">Facebook</span></a></li>
+                                <li><a class="icon fa-twitter" href="http://www.twitter.com/cmdpromptinc"><span class="label">Twitter</span></a></li>
+                                <li><a class="icon fa-linkedin" href="http://www.linkedin.com/pub/amanda-nystrom/23/2a9/177"><span class="label">LinkedIn</span></a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul class="menu">
+            <li>&copy; Copyright © 2000-{% now "Y" %} Command Prompt, Inc. All Rights Reserved. All trademarks property of their respective owners.</li>
+            </ul>
+        </div>
+    </footer>
+
+ 			</div>
+
+ 		<!-- Scripts -->
+ 			<script src="/static/js/jquery.min.js"></script>
+ 			<script src="/static/js/jquery.dropotron.min.js"></script>
+ 			<script src="/static/js/skel.min.js"></script>
+ 			<script src="/static/js/skel-viewport.min.js"></script>
+ 			<script src="/static/js/util.js"></script>
+ 			<!--[if lte IE 8]><script src="/static/js/ie/respond.min.js"></script><![endif]-->
+ 			<script src="/static/js/main.js"></script>
+
+ 	</body>
+ </html>
