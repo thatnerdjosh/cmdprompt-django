@@ -27,7 +27,7 @@
      <!-- Nav -->
        <nav id="nav">
          <ul>
-           <li><span class="header"><img src="/static/images/cmd.jpg" alt="" /></span></li>
+           <li><span class="header"><a href="/" style="background:none"><img src="/static/images/cmd.jpg" alt="CommandPrompt Logo" /></a></span></li>
             {%for m in navmenu%}
             {%if not forloop.first %}</li>{%endif%}
             <li {%if navsection == m.navcontext%}class="current"{%endif%}><a href="{{m.link}}">{{m.title}}</a>

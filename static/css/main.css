@@ -987,6 +987,7 @@ table.default thead {
     .header img {
 				width: 5em;
 				vertical-align: middle;
+        padding-top: 5px;
   	}
 
     .header.images img {
